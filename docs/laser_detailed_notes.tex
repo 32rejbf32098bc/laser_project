@@ -1,0 +1,449 @@
+\documentclass[11pt,a4paper]{article}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black
+]{hyperref}
+
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\setstretch{1.15}
+
+% --------------------
+% Code formatting
+% --------------------
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray}
+}
+
+% --------------------
+% Title
+% --------------------
+\title{Planning Notes and Methods Development\\
+Low-Cost Laser-Based Pipe Inspection System}
+
+\author{Luis Nunes}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% ==================================================
+\section{Introduction}
+
+This document records the evolving design decisions, software structure, and processing methods for the laser-based pipe inspection system.
+
+It is intended as a technical planning and reference document to support later report writing and system refinement.
+
+Entries are dated to track development progress.
+
+% ==================================================
+\section{System Overview}
+
+The system consists of:
+
+\begin{itemize}
+  \item Raspberry Pi 5
+  \item Raspberry Pi Camera (v2 / Camera Module 3 planned)
+  \item Red line laser module (635--660 nm)
+  \item Adjustable mechanical mount
+  \item Python-based image processing pipeline
+\end{itemize}
+
+The system uses laser triangulation to estimate surface depth inside pipes.
+
+% ==================================================
+\section{Project Directory Structure}
+
+\textbf{Date: 04 February 2026}
+
+Current project structure:
+
+\begin{lstlisting}
+laser_project/
+├── cfg/
+│   └── config.yaml
+├── src/
+│   ├── utils.py
+│   ├── extract_laser_line.py
+│   ├── calibrate_camera.py
+│   ├── calibrate_laser_plane.py
+│   └── reconstruct_depth.py
+├── data/
+│   ├── raw/
+│   └── processed/
+└── calib/
+\end{lstlisting}
+
+This modular structure separates configuration, processing, calibration, and data.
+
+% ==================================================
+\section{Configuration System}
+
+\textbf{Date: 04 February 2026}
+
+System parameters are stored in a YAML configuration file.
+
+Main sections:
+
+\begin{itemize}
+  \item \texttt{camera}: Intrinsic parameters
+  \item \texttt{laser}: HSV detection thresholds
+  \item \texttt{processing}: ROI and filtering parameters
+\end{itemize}
+
+Example structure:
+
+\begin{lstlisting}
+processing:
+  roi: null
+  blur_ksize: 3
+  morph_ksize: 3
+  min_pixels_per_row: 5
+  subpixel: true
+\end{lstlisting}
+
+This allows rapid tuning without modifying source code.
+
+% ==================================================
+\section{Utility Functions}
+
+\textbf{Date: 05 February 2026}
+
+Common processing functions are stored in \texttt{utils.py}.
+
+Main functions:
+
+\begin{itemize}
+  \item \texttt{load\_config}: Loads YAML configuration
+  \item \texttt{crop\_roi}: Extracts region of interest
+  \item \texttt{hsv\_mask\_red}: Detects red laser pixels
+  \item \texttt{apply\_morph}: Cleans binary mask
+\end{itemize}
+
+This promotes code reuse and maintainability.
+
+% ==================================================
+\section{Laser Line Extraction Method}
+
+\textbf{Date: 05 February 2026}
+
+The current laser extraction method operates row-by-row.
+
+Processing stages:
+
+\begin{enumerate}
+  \item Load input image
+  \item Crop ROI (if enabled)
+  \item Apply Gaussian blur
+  \item Convert to HSV colour space
+  \item Threshold red pixels
+  \item Apply morphological filtering
+  \item Extract centre per image row
+\end{enumerate}
+
+For each row $y$:
+
+\begin{equation}
+x(y) = \frac{1}{N}\sum_{i=1}^{N} x_i
+\end{equation}
+
+where $x_i$ are detected laser pixels.
+
+This yields one centre point per row.
+
+\subsection{Assumptions}
+
+The method assumes:
+
+\begin{itemize}
+  \item A single dominant laser stripe
+  \item Near-vertical stripe orientation
+  \item One intersection per image row
+\end{itemize}
+
+Violations of these assumptions (e.g. reflections, rings) reduce accuracy.
+
+% ==================================================
+\section{Output Data}
+
+\textbf{Date: 06 February 2026}
+
+Each extraction run produces:
+
+\begin{itemize}
+  \item Binary mask image
+  \item Overlay image with centreline
+  \item CSV file of $(y,x)$ coordinates
+\end{itemize}
+
+Example CSV format:
+
+\begin{lstlisting}
+y,x
+124,532.4
+125,531.9
+126,531.7
+\end{lstlisting}
+
+These coordinates are used for 3D reconstruction.
+
+% ==================================================
+\section{Camera Calibration}
+
+\textbf{Date: 06 February 2026}
+
+Camera intrinsics are obtained using a checkerboard calibration method.
+
+OpenCV is used to estimate:
+
+\begin{itemize}
+  \item Focal lengths $(f_x, f_y)$
+  \item Principal point $(c_x, c_y)$
+  \item Distortion coefficients
+\end{itemize}
+
+Calibration is resolution- and focus-dependent.
+
+Refocusing requires recalibration.
+
+% ==================================================
+\section{Checkerboard Calibration Pattern and OpenCV Usage}
+
+\textbf{Date: 09 February 2026}
+
+\subsection{Checkerboard Pattern Requirements}
+
+Camera calibration is performed using a planar black--white checkerboard pattern.
+
+The following parameters are important:
+
+\begin{itemize}
+  \item \textbf{Inner corners:} The number of inner corner intersections in the pattern (rows $\times$ columns).
+  Typical values used are $9\times6$, $10\times7$, or $11\times8$.
+  \item \textbf{Square size:} The physical length of one square edge, measured in millimetres.
+  \item \textbf{Overall board size:} The checkerboard should occupy a significant portion of the camera field of view during calibration.
+\end{itemize}
+
+The inner corner count and square size must be supplied correctly to the calibration software.
+
+\subsection{Influence of Checkerboard Size}
+
+The absolute square size does not affect intrinsic parameters directly, as these are estimated in pixel units. However, accurate square dimensions are required for:
+
+\begin{itemize}
+  \item Estimation of camera pose
+  \item Laser plane calibration
+  \item Metric reconstruction of 3D geometry
+\end{itemize}
+
+For reliable detection, each square should appear approximately 20--80 pixels wide in the captured images.
+
+Boards that are too small produce unreliable corner detection, while boards that are too large limit pose variation.
+
+\subsection{Print Quality and Mounting}
+
+Calibration accuracy is influenced by physical board quality.
+
+Recommended practices include:
+
+\begin{itemize}
+  \item High-resolution printing
+  \item Matte paper to reduce reflections
+  \item Mounting on rigid backing (cardboard or foamboard)
+  \item Avoiding warping or bending
+\end{itemize}
+
+A flat and rigid checkerboard improves geometric consistency.
+
+\subsection{Use of OpenCV Calibration Functions}
+
+The calibration pipeline is implemented using a custom Python script that interfaces with OpenCV.
+
+The following OpenCV functions perform the core computations:
+
+\begin{itemize}
+  \item \texttt{cv2.findChessboardCorners}: Detects checkerboard corner locations
+  \item \texttt{cv2.cornerSubPix}: Refines corner positions to subpixel accuracy
+  \item \texttt{cv2.calibrateCamera}: Estimates camera intrinsics and distortion
+  \item \texttt{cv2.projectPoints}: Used for reprojection error analysis
+  \item \texttt{cv2.undistort}: Generates undistorted validation images
+\end{itemize}
+
+These functions implement established calibration algorithms and are extensively validated in the computer vision community.
+
+\subsection{Custom Calibration Script Design}
+
+Although OpenCV performs the mathematical optimisation, a custom script has been developed to manage the calibration workflow.
+
+The script provides:
+
+\begin{itemize}
+  \item Automated image loading and filtering
+  \item Detection success logging
+  \item Optional debug image generation
+  \item Reprojection error computation
+  \item Export of calibration parameters to YAML format
+\end{itemize}
+
+This approach combines reliable library functions with a project-specific processing pipeline.
+
+\subsection{Calibration Validity Conditions}
+
+Camera calibration remains valid only under fixed optical conditions.
+
+Recalibration is required if any of the following change:
+
+\begin{itemize}
+  \item Lens focus
+  \item Image resolution
+  \item Digital cropping or scaling
+  \item Camera module replacement
+\end{itemize}
+
+Changes in camera position or orientation alone do not invalidate intrinsic calibration.
+
+\subsection{Recommended Calibration Practice}
+
+For this project, the following procedure is recommended:
+
+\begin{enumerate}
+  \item Mount camera rigidly
+  \item Fix focus settings
+  \item Select final operating resolution
+  \item Capture 15--30 checkerboard images
+  \item Vary board distance and orientation
+  \item Perform calibration
+  \item Verify reprojection error and undistortion
+\end{enumerate}
+
+A mean reprojection error below 0.6 pixels is considered acceptable for this application.
+
+
+% ==================================================
+\section{Laser Plane Calibration (Planned)}
+
+\textbf{Date: 07 February 2026}
+
+Laser plane calibration will use a planar checkerboard target.
+
+Proposed method:
+
+\begin{enumerate}
+  \item Capture board poses with laser on
+  \item Estimate board pose
+  \item Back-project laser pixels to rays
+  \item Intersect rays with board plane
+  \item Fit plane to 3D points
+\end{enumerate}
+
+Plane model:
+
+\begin{equation}
+ax + by + cz + d = 0
+\end{equation}
+
+Parameters will be stored in YAML.
+
+% ==================================================
+\section{3D Reconstruction Method}
+
+\textbf{Date: 07 February 2026}
+
+Given:
+
+\begin{itemize}
+  \item Camera intrinsics
+  \item Laser plane parameters
+  \item Pixel centreline
+\end{itemize}
+
+Each pixel $(u,v)$ defines a ray:
+
+\begin{equation}
+\mathbf{r} = K^{-1}
+\begin{bmatrix}
+u \\ v \\ 1
+\end{bmatrix}
+\end{equation}
+
+Intersection with the laser plane yields 3D points.
+
+% ==================================================
+\section{Limitations of Current Method}
+
+\textbf{Date: 08 February 2026}
+
+Current limitations:
+
+\begin{itemize}
+  \item Sensitive to multiple reflections
+  \item Assumes single intersection per row
+  \item Limited accuracy for curved stripes
+  \item No temporal smoothing
+\end{itemize}
+
+The row-mean method is an approximation suitable for early prototyping.
+
+% ==================================================
+\section{Future Improvements}
+
+\textbf{Date: 08 February 2026}
+
+Planned upgrades:
+
+\begin{itemize}
+  \item Gaussian ridge fitting
+  \item Skeletonisation of laser stripe
+  \item Robust outlier rejection
+  \item Ring laser support
+  \item Real-time processing
+  \item ML-based defect detection
+\end{itemize}
+
+% ==================================================
+\section{Development Log}
+
+\subsection*{04 Feb 2026}
+Initial codebase created. YAML configuration implemented.
+
+\subsection*{05 Feb 2026}
+Laser extraction pipeline operational. HSV thresholding validated.
+
+\subsection*{06 Feb 2026}
+PNG input testing successful. CSV output verified.
+
+\subsection*{07 Feb 2026}
+Calibration pipeline drafted. Laser plane method planned.
+
+\subsection*{08 Feb 2026}
+Limitations of row-wise centroid method identified.
+
+% ==================================================
+\section{Conclusion}
+
+This document provides a structured reference for system development and will be expanded as the project progresses.
+
+It supports reproducibility, debugging, and later academic reporting.
+
+\end{document}

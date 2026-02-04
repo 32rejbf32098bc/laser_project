@@ -1,0 +1,130 @@
+whisk\documentclass[11pt,a4paper]{article}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\setstretch{1.15}
+
+% --------------------
+% Title
+% --------------------
+\title{\textbf{Research Findings on Tactile Sensors for Spatial and Surface Mapping}}
+\author{}
+\date{\today}
+
+% --------------------
+% Document
+% --------------------
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Tactile sensing provides an alternative to vision- and range-based perception by exploiting physical contact with the environment. In robotics, tactile sensors have traditionally been employed for contact detection and manipulation; however, a growing body of research demonstrates their applicability to spatial mapping and surface geometry reconstruction. This document summarises key research findings on tactile sensing for spatial and surface mapping, with particular emphasis on contact-based approaches suitable for confined or visually degraded environments. A dedicated subsection is provided for whisker-based tactile sensors, reflecting their prominence in bio-inspired spatial mapping research.
+
+\section{Tactile Sensors for Spatial and Surface Mapping}
+
+Tactile sensors used for spatial mapping can be broadly categorised according to the physical quantity they measure and the manner in which spatial information is recovered. Unlike vision-based sensors, tactile systems rely on controlled motion and contact mechanics to infer geometry.
+
+\subsection{Displacement-Based Contact Sensors}
+
+\begin{itemize}
+    \item Displacement-based tactile sensors measure physical deflection or position of a probe in contact with a surface.
+    \item Common implementations include spring-loaded probes, compliant flexures, and mechanical profilometers.
+    \item These sensors provide direct geometric information such as surface height, diameter variation, and local deformation.
+    \item Spatial resolution is determined primarily by scanning motion rather than sensor density.
+    \item Displacement-based approaches are well suited to environments where optical sensing is unreliable due to contamination or low visibility.
+\end{itemize}
+
+\subsection{Force-Based Tactile Sensors}
+
+\begin{itemize}
+    \item Force-based tactile sensors measure normal or shear forces generated during contact.
+    \item Typical examples include force-sensitive resistors, strain-gauged beams, and miniature load cells.
+    \item These sensors are effective for detecting contact events, compliance, and relative surface roughness.
+    \item Force measurements alone do not directly encode absolute surface geometry and are often combined with kinematic models.
+    \item Force-based tactile sensing is commonly used as a complementary modality for surface condition assessment.
+\end{itemize}
+
+\subsection{Optical (Vision-Based) Tactile Sensors}
+
+\begin{itemize}
+    \item Optical tactile sensors use cameras embedded within compliant materials to image surface deformation during contact.
+    \item These sensors can reconstruct high-resolution three-dimensional surface patches from tactile images.
+    \item Vision-based tactile sensing enables true surface height mapping and fine texture reconstruction.
+    \item However, such systems are sensitive to dirt, moisture, and mechanical wear, limiting their deployment in harsh environments.
+    \item Optical tactile sensors are therefore most suitable for controlled laboratory settings or clean industrial applications.
+\end{itemize}
+
+\subsection{Vibration and Texture-Based Tactile Sensors}
+
+\begin{itemize}
+    \item Vibration-based tactile sensors measure dynamic responses induced by sliding contact with a surface.
+    \item Piezoelectric sensors and MEMS accelerometers are commonly used to capture vibration signatures.
+    \item These sensors are effective for characterising surface texture and roughness classes.
+    \item They are not well suited for absolute geometry reconstruction but can provide valuable supplementary information.
+\end{itemize}
+
+\section{Whisker-Based Tactile Sensors}
+
+Whisker-based tactile sensors represent a bio-inspired subclass of displacement-based contact sensors. Inspired by mammalian vibrissae, these sensors exploit compliant, hair-like structures to extract spatial information through deflection during contact.
+
+\subsection{General Characteristics of Whisker Sensors}
+
+\begin{itemize}
+    \item Whisker sensors consist of flexible rods mounted to a sensing base capable of measuring deflection.
+    \item Common sensing mechanisms include Hall-effect sensors, strain gauges, piezoelectric elements, and optical encoders.
+    \item Whiskers act as mechanical filters, with low-frequency deflections corresponding to surface geometry and high-frequency components relating to texture.
+    \item Spatial resolution is achieved through controlled motion and repeated contact rather than dense sensor arrays.
+\end{itemize}
+
+\subsection{Key Findings from the Literature}
+
+\subsubsection{Schultz et al. (2005)}
+
+\begin{itemize}
+    \item Demonstrated that whisker arrays can be used for distance estimation, terrain mapping, and object feature extraction.
+    \item Showed that whisker deflection magnitude and direction correlate with local surface geometry.
+    \item Highlighted that spatial information can be recovered through sensor motion, reducing reliance on large arrays.
+    \item Demonstrated effectiveness in environments where vision-based sensing fails.
+\end{itemize}
+
+\subsubsection{Sayegh et al. (2022)}
+
+\begin{itemize}
+    \item Provided a comprehensive review of bio-inspired whisker sensor designs and manufacturing approaches.
+    \item Categorised whisker sensors by sensing mechanism and structural design.
+    \item Identified Hall-effect-based whiskers as particularly robust for harsh and contaminated environments.
+    \item Noted that whisker sensors are predominantly used for navigation despite their mapping potential.
+\end{itemize}
+
+\subsubsection{Gomez et al. (2024)}
+
+\begin{itemize}
+    \item Developed a circular array of 32 whisker sensors for three-dimensional spatial mapping.
+    \item Employed multi-axis Hall-effect sensing to estimate whisker deflection direction and magnitude.
+    \item Demonstrated reconstruction of three-dimensional point clouds using tactile data alone.
+    \item Combined analytical and data-driven models to improve mapping accuracy.
+\end{itemize}
+
+\subsection{Relevance of Whisker Sensors to Spatial Mapping}
+
+\begin{itemize}
+    \item Whisker sensors provide a mechanically robust and information-rich tactile modality.
+    \item They are well suited to environments with poor visibility, dust, or surface contamination.
+    \item Controlled scanning motion enables reconstruction of spatial geometry with relatively simple hardware.
+    \item Despite demonstrated capability, whisker-based tactile mapping remains underexplored in applied surface inspection contexts.
+\end{itemize}
+
+\section{Concluding Remarks}
+
+The reviewed literature demonstrates that tactile sensing encompasses a diverse range of technologies capable of supporting spatial and surface mapping. Displacement-based tactile sensors, including whisker-based systems, are particularly well suited to environments where optical sensing is degraded. Whisker sensors stand out as a robust and bio-inspired approach with proven capability for three-dimensional spatial mapping, motivating further investigation into their application for interior surface condition assessment in confined environments.
+
+\end{document}
