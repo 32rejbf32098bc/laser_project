@@ -1,0 +1,21 @@
+camera:
+  fx: 1000.0
+  fy: 1000.0
+  cx: 640.0
+  cy: 360.0
+  dist: [0, 0, 0, 0, 0]
+
+laser:
+  wavelength_nm: 650
+  hsv_red1_lower: [0, 120, 60]
+  hsv_red1_upper: [10, 255, 255]
+  hsv_red2_lower: [170, 120, 60]
+  hsv_red2_upper: [179, 255, 255]
+
+processing:
+  roi: null
+  blur_ksize: 3
+  morph_ksize: 3
+  morph_iters: 1
+  min_pixels_per_row: 5
+  subpixel: true
