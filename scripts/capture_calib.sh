@@ -70,7 +70,7 @@ for i in $(seq -w 1 "$N"); do
   TS="$(date +%Y%m%d_%H%M%S)"
   OUT="$OUT_DIR/chess_${TS}_${i}.${ENC}"
 
-  ARGS=(--nopreview -o "$OUT" --width "$W" --height "$H" --timeout 1)
+  ARGS=(-o "$OUT" --width "$W" --height "$H" --timeout 3000)
 
   # Encoding
   if [[ "$ENC" == "png" ]]; then

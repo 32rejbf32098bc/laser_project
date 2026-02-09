@@ -3,5 +3,7 @@
   "python.linting.enabled": true,
   "python.analysis.typeCheckingMode": "basic",
   "editor.formatOnSave": true,
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "python-envs.pythonProjects": []
 }
