@@ -1,0 +1,308 @@
+\documentclass[11pt,a4paper]{article}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black
+]{hyperref}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\setstretch{1.15}
+
+% --------------------
+% Code formatting
+% --------------------
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray}
+}
+
+% --------------------
+% Title
+% --------------------
+\title{Project Plan\\
+Autonomous Pipe Inspection System}
+
+\author{Luis Nunes and Project Team}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% ==================================================
+\section{Introduction}
+
+This document outlines the proposed project plan for the development of an autonomous pipe inspection system. The system aims to detect, map, and classify defects within pipelines using a combination of sensing, robotics, and data processing techniques.
+
+The project is divided into multiple subsystems, each developed by different team members. This document provides an overall structure while allowing flexibility for refinement during development.
+
+% ==================================================
+\section{Project Objectives}
+
+The main objectives of the project are:
+
+\begin{itemize}
+  \item Design and implement a mobile pipe inspection platform
+  \item Develop a reliable surface mapping system
+  \item Detect structural defects such as cracks and corrosion
+  \item Enable remote data transmission and control
+  \item Validate system performance experimentally
+\end{itemize}
+
+% ==================================================
+\section{System Overview}
+
+The proposed system consists of the following major subsystems:
+
+\begin{itemize}
+  \item Mobile robotic platform
+  \item Laser-based surface mapping system
+  \item Alternative mapping sensors (stereo vision)
+  \item Navigation and localisation system
+  \item Communication and control interface
+  \item Data processing and defect classification pipeline
+\end{itemize}
+
+These subsystems will be developed in parallel and integrated during later project stages.
+
+% ==================================================
+\section{Surface Mapping and Measurement}
+
+\subsection{Laser Triangulation Mapping (Luis Nunes)}
+
+\subsubsection{Overview}
+
+This subsystem focuses on the development of a laser triangulation-based surface mapping system for internal pipe inspection.
+
+A line laser is projected onto the internal pipe surface and observed by a calibrated camera. Using geometric triangulation, the deformation of the laser line is converted into depth information.
+
+This method provides high-resolution local surface measurements and is suitable for detecting small-scale defects.
+
+\subsubsection{Hardware Configuration}
+
+The mapping system consists of:
+
+\begin{itemize}
+  \item Raspberry Pi 5
+  \item Raspberry Pi Camera Module 3
+  \item Red line laser module (635--660 nm)
+  \item Adjustable mechanical mount
+  \item Linear translation mechanism
+\end{itemize}
+
+The camera and laser are mounted at a fixed baseline and angle to enable accurate triangulation.
+
+\subsubsection{Camera Calibration}
+
+Camera intrinsics are obtained using a planar checkerboard calibration procedure implemented in OpenCV.
+
+The calibration estimates:
+
+\begin{itemize}
+  \item Focal lengths
+  \item Principal point
+  \item Lens distortion coefficients
+\end{itemize}
+
+Calibration is performed at the final operating resolution and focus setting to ensure consistency.
+
+\subsubsection{Laser Plane Calibration}
+
+Laser plane calibration is used to determine the 3D equation of the projected laser sheet.
+
+The proposed method involves:
+
+\begin{enumerate}
+  \item Capturing checkerboard images with laser enabled
+  \item Estimating board pose using camera intrinsics
+  \item Back-projecting laser pixels to rays
+  \item Intersecting rays with the board plane
+  \item Fitting a plane model
+\end{enumerate}
+
+The resulting plane parameters enable conversion from image coordinates to real-world depth.
+
+\subsubsection{Image Processing Pipeline}
+
+The current processing pipeline includes:
+
+\begin{enumerate}
+  \item Image acquisition
+  \item Region of interest selection
+  \item Gaussian smoothing
+  \item HSV colour thresholding
+  \item Morphological filtering
+  \item Laser centreline extraction
+  \item Subpixel refinement
+\end{enumerate}
+
+The pipeline outputs a set of 2D pixel coordinates representing the laser stripe.
+
+\subsubsection{3D Reconstruction}
+
+Each detected pixel coordinate $(u,v)$ is converted to a 3D ray:
+
+\begin{equation}
+\mathbf{r} = K^{-1}
+\begin{bmatrix}
+u \\ v \\ 1
+\end{bmatrix}
+\end{equation}
+
+Intersection of this ray with the calibrated laser plane yields a 3D surface point.
+
+Sequential scans are combined to form a depth profile.
+
+\subsubsection{Alternative Mapping: Conical Mirror System (Exploratory)}
+
+If time permits, a conical mirror combined with a point laser will be investigated.
+
+This approach aims to project a circular laser profile onto the pipe wall, enabling full circumferential mapping in a single image.
+
+This method will be evaluated experimentally and compared against line-based triangulation.
+
+\subsubsection{Development Milestones}
+
+\begin{itemize}
+  \item Camera calibration and validation
+  \item Stable laser extraction pipeline
+  \item Laser plane calibration
+  \item Depth reconstruction validation
+  \item Surface accuracy assessment
+  \item Integration with motion system
+\end{itemize}
+
+% ==================================================
+\subsection{Stereo Vision Mapping (To Be Completed)}
+
+This section will describe the development of a stereo vision-based surface reconstruction system.
+
+Details to be completed by responsible team members.
+
+% ==================================================
+\section{Robotic Platform Design (To Be Completed)}
+
+This section will outline the mechanical and actuation design of the mobile inspection robot.
+
+Topics include:
+
+\begin{itemize}
+  \item Locomotion mechanism
+  \item Structural design
+  \item Power distribution
+  \item Actuation systems
+\end{itemize}
+
+Details to be added by the robotics team.
+
+% ==================================================
+\section{Navigation and Localisation (To Be Completed)}
+
+This section will describe methods for estimating robot position and orientation within pipes.
+
+Potential sensors include:
+
+\begin{itemize}
+  \item Ultrasonic sensors
+  \item LiDAR
+  \item Inertial sensors
+\end{itemize}
+
+Details to be added by responsible team members.
+
+% ==================================================
+\section{Communication and Control (To Be Completed)}
+
+This section will outline remote communication and system control methods.
+
+Topics include:
+
+\begin{itemize}
+  \item Wireless communication
+  \item Data transmission
+  \item Remote monitoring
+  \item Control interfaces
+\end{itemize}
+
+% ==================================================
+\section{Data Processing and Defect Classification (To Be Completed)}
+
+This section will describe post-processing and machine learning methods for defect identification.
+
+Potential techniques include:
+
+\begin{itemize}
+  \item Feature extraction
+  \item Statistical analysis
+  \item Machine learning classifiers
+  \item Deep learning models
+\end{itemize}
+
+% ==================================================
+\section{System Integration and Testing}
+
+System integration will be performed in stages:
+
+\begin{enumerate}
+  \item Subsystem validation
+  \item Mechanical-electrical integration
+  \item Sensor synchronisation
+  \item Software integration
+  \item End-to-end testing
+\end{enumerate}
+
+Testing will include controlled laboratory experiments and representative pipe environments.
+
+% ==================================================
+\section{Project Management and Timeline}
+
+Each subsystem will follow an internal development schedule.
+
+Key milestones will be mapped to a consolidated project Gantt chart at a later stage once subsystem development stabilises.
+
+This approach allows adaptive planning while maintaining overall project coherence.
+
+% ==================================================
+\section{Risk Assessment}
+
+Key project risks include:
+
+\begin{itemize}
+  \item Insufficient mapping accuracy
+  \item Mechanical instability
+  \item Communication failures
+  \item Integration delays
+  \item Limited testing time
+\end{itemize}
+
+Mitigation strategies will be developed throughout the project.
+
+% ==================================================
+\section{Conclusion}
+
+This project plan provides a structured framework for the development of an autonomous pipe inspection system.
+
+The laser triangulation subsystem forms a core component of the surface mapping capability and will be developed and validated early in the project.
+
+The document will be updated iteratively as development progresses.
+
+\end{document}
