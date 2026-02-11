@@ -172,3 +172,120 @@ Start: Feb 2026
 - Validate triangulation accuracy
 - Begin controlled scanning experiments
 - Order stepper driver and pi active cooling module.
+
+--
+
+## 2026-02-10
+
+### Stepper Motor Integration (Initial Testing)
+
+- Began integrating NEMA 17 stepper motor with motor driver and Raspberry Pi 5
+- Attempted wiring using initial driver board and DuPont connections
+- Set up STEP/DIR/EN control via GPIO (gpiozero and RPi.GPIO)
+- Wrote and tested basic step pulse scripts
+
+### Issues Encountered
+- Motor failed to rotate despite correct logic signals
+- Driver overheated during early tests
+- Inconsistent current draw from PSU
+- ENABLE pin behaviour unclear
+- Motor occasionally jittered when idle
+- Suspected wiring and current-limit issues
+
+### GPIO / Hardware Debugging
+
+- Ran `pintest` utility to verify GPIO functionality
+- Test reported failures on:
+  - GPIO17
+  - GPIO22
+  - GPIO27
+- Pins failed to drive HIGH or configure pull-ups correctly
+- Same errors observed with nothing connected
+- Suggested possible:
+  - Pin damage
+  - Driver conflict
+  - Kernel / firmware issue
+- Avoided unreliable pins in later wiring
+
+### Debugging
+
+- Measured coil resistance to verify motor health
+- Checked VMOT, VDD, and GND connections
+- Tested multiple GPIO pin combinations
+- Added pull-down resistor to STEP line to reduce noise
+- Investigated capacitor requirements for driver stability
+
+### Outcome
+- Stepper system not fully operational
+- Likely driver configuration or hardware issue
+- Possible GPIO reliability problems identified
+- Decided to replace driver with newer TB67S581FNG driver board
+
+### Notes
+- Identified importance of correct SLEEP/RESET and VREF setup
+- Learned current limiting and grounding are critical for stability
+
+--
+
+## 2026-02-11
+
+### Stepper Motor System (Successful Setup)
+
+- Installed and soldered headers onto new TB67S581FNG driver board
+- Correctly wired VMOT, GND, STEP, DIR, SLEEP, RESET, and motor coils
+- Configured SLEEP and RESET high to enable driver
+- Adjusted VREF to ~0.42 V for safe current limiting
+- Verified stable current draw and motor locking behaviour
+
+### Motion Control
+
+- Set microstepping to 1/8 via MODE pins
+- Implemented distance-based motion control (mm → steps)
+- Calculated lead screw resolution (TR8×8, 8 mm/rev)
+- Confirmed reliable linear motion
+
+### Scan Automation
+
+- Developed `scan_step_capture.py` script
+- Integrated:
+  - Stepper motion
+  - rpicam-still capture
+  - Configurable step size
+  - Total scan distance
+- Added automatic return-to-start at end of scan
+- Implemented terminal progress bar for scan monitoring
+
+### Camera Integration
+
+- Integrated camera capture with motor stepping
+- Tuned shutter and gain for scan images
+- Reduced terminal spam using `--quiet` flag
+- Added error handling for failed captures
+
+### Debugging
+
+- Resolved GPIO allocation issues
+- Fixed EN pin and MODE wiring problems
+- Identified importance of common ground
+- Diagnosed failed driver behaviour from earlier setup
+
+### Outcome
+
+- Fully working motor + camera scan pipeline
+- System now capable of:
+  - Moving precise distances
+  - Capturing synchronized images
+  - Performing automated linear scans
+
+### Notes
+
+- 1/8 microstepping chosen as balance between smoothness and reliability
+- Digital zoom avoided; physical positioning preferred
+- Platform now ready for laser integration
+
+### Next
+
+- Integrate laser module
+- Implement laser plane calibration
+- Run full structured-light scan tests
+- Begin multi-frame 3D reconstruction pipeline
