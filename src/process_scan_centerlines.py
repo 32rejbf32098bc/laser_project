@@ -25,7 +25,7 @@ import numpy as np
 import cv2
 
 # Reuse your existing helpers
-from utils import load_config, ensure_dir, crop_roi, hsv_mask_red, apply_morph
+from utils.utils import load_config, ensure_dir, crop_roi, hsv_mask_red, apply_morph
 
 
 INDEX_RE = re.compile(r".*_(\d{4})\.(jpg|jpeg|png)$", re.IGNORECASE)

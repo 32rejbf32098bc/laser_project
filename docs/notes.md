@@ -289,3 +289,290 @@ Start: Feb 2026
 - Implement laser plane calibration
 - Run full structured-light scan tests
 - Begin multi-frame 3D reconstruction pipeline
+
+## 2026-02-12 (1)
+
+### Camera Calibration Analysis
+
+Performed detailed comparison of the two intrinsic calibration runs.
+
+| Parameter | Run 1 (A4 board) | Run 2 (A5 board) | Notes |
+|------------|-----------------|-----------------|-------|
+| RMS error (px) | 1.508 | 1.163 | Improved, but still high |
+| fx | 3462.92 | 3463.13 | Very consistent |
+| fy | 3507.39 | 3456.46 | Run 1 showed distortion imbalance |
+| cx | 2324.83 | 2297.55 | Shifted ~27 px |
+| cy | 1232.65 | 1294.13 | Shifted ~61 px |
+
+#### Observations
+
+- RMS error ideally should be < 0.5 px for high-accuracy triangulation.
+- fx and fy should be nearly identical (square pixels).
+- Principal point should be close to theoretical image centre (2304, 1296).
+- Run 2 improved reprojection error but showed principal point drift.
+- Smaller checkerboard improved overall stability.
+
+#### Likely Causes
+
+- Focus not fully locked across captures.
+- Insufficient extreme tilt angles.
+- Limited coverage of image corners.
+- Minor motion blur or exposure variation.
+
+#### Action Plan
+
+- Lock lens position manually before capture.
+- Capture 20–30 images with strong board tilt (30–45°).
+- Ensure checkerboard reaches image edges in several frames.
+- Maintain fixed shutter + gain.
+- Re-run calibration and compare stability of fx, fy, cx, cy.
+
+### Laser Triangulation Geometry Visualisation (Python)
+
+- Built full 3D triangulation model in Python.
+- Implemented:
+  - Camera origin
+  - Image plane (z = -f)
+  - Laser fan plane originating from single laser point
+  - Multiple ray–plane intersections
+- Added:
+  - Straight-line surface profile
+  - Sine-wave surface profile
+  - Toggle button to switch profiles
+  - View preset buttons (Iso / XY / XZ / YZ)
+
+#### Graph Improvements
+
+- Removed grid and default axes.
+- Added subtle coordinate arrows.
+- Implemented equal axis scaling.
+- Added zoom control.
+- Reduced focal length (f = 0.5) for clearer visual separation.
+
+### Distortion Demonstration
+
+Extended the model to compare:
+
+- True 3D surface points (laser plane intersections)
+- Distorted pixel projections
+- Reconstructed 3D surface from distorted pixels
+- Error vectors (true → reconstructed)
+
+<img src="docs/figures/Triangulation_dist_vs_undist.png" width="600">
+
+#### Key Insight
+
+- Distortion originates in pixel space.
+- Small pixel errors can produce amplified 3D reconstruction error.
+- Accurate intrinsic calibration and undistortion are essential before triangulation.
+
+### System Status
+
+- Stepper + capture pipeline operational.
+- Laser extraction pipeline functional.
+- 3D geometry model validated conceptually.
+- Intrinsic calibration requires refinement for higher precision.
+
+### Next
+
+- Re-run improved intrinsic calibration.
+- Finalise horizontal laser centreline extraction.
+- Implement laser plane calibration.
+- Convert multi-frame centreline CSV into full 3D reconstruction.
+- Validate reconstruction against printed test samples.
+
+---
+
+## 2026-02-12 (2) — Pipeline Architecture Refactor + Orchestrator Integration
+
+### Major Refactor — Structured Scan Architecture
+
+Today the project transitioned from standalone experimental scripts to a structured, modular scan pipeline.
+
+Previously:
+- `scan_step_capture.py` combined motion control and image capture.
+- Hardware logic and orchestration were mixed.
+- Processing was loosely connected and not formally integrated.
+
+Now:
+- Introduced `run_scan.py` as the main orchestrator.
+- Separated hardware, camera, IO, geometry, and vision logic into dedicated modules.
+- Removed helper logic from the main script.
+- Prepared architecture for scalable reconstruction.
+
+This marks the shift from prototype-level scripting to a research-grade structured system.
+
+### Full Project Structure (Current)
+
+    laser_project/
+    ├── cfg/
+    │   └── config.yaml
+    │
+    ├── data/
+    │   ├── raw/
+    │   └── processed/
+    │
+    ├── src/
+    │   ├── __init__.py
+    │   │
+    │   ├── run_scan.py                # Main orchestrator
+    │   │
+    │   ├── hardware/
+    │   │   ├── __init__.py
+    │   │   ├── stage_gpiozero.py      # Stepper stage abstraction
+    │   │   └── camera_rpicam.py       # rpicam-still wrapper class
+    │   │
+    │   └── utils/
+    │       ├── __init__.py
+    │       ├── camera_utils.py
+    │       ├── geom_utils.py
+    │       ├── io_utils.py
+    │       └── vision_utils.py
+    │
+    └── docs/
+        └── notes.md
+
+### Design Principle
+
+- `run_scan.py` = control flow only
+- `hardware/` = physical interfaces
+- `utils/` = processing + helper logic
+- No business logic inside hardware classes
+- No hardware logic inside orchestrator
+
+The orchestrator coordinates modules but contains no implementation logic.
+
+### Stepper Stage Abstraction
+
+Implemented `StepDirStage`.
+
+Features:
+- mm → steps conversion
+- Microstepping awareness
+- Speed-based delay calculation
+- Direction control
+- Internal tracking of accumulated steps
+- Soft return-to-start functionality
+
+All GPIO and timing logic is now encapsulated inside `hardware/stage_gpiozero.py`.
+
+This removes raw STEP/DIR pulse generation from the main pipeline.
+
+### Camera Abstraction
+
+Implemented `RpiCamStill`.
+
+Encapsulates:
+- `rpicam-still` CLI construction
+- Resolution control
+- Shutter time
+- Analogue gain
+- Manual lens position
+- AWB gain locking
+
+Terminal output is suppressed using:
+- `stdout=subprocess.DEVNULL`
+- `stderr=subprocess.PIPE`
+
+Errors raise a clean `RuntimeError`.
+
+Removed dependency on the CLI `--quiet` flag.
+
+### Structured Plans (Data-Only Models)
+
+Introduced dataclasses:
+- `MotionPlan`
+- `CameraPlan`
+- `ProcessingPlan`
+
+Purpose:
+- Separate CLI arguments from runtime logic
+- Maintain reproducible scan metadata
+- Provide clean JSON export
+- Allow config-driven defaults
+
+This enables consistent experiment logging.
+
+### Optional Auto Exposure Calibration Stage
+
+Integrated optional pre-scan exposure calibration via:
+
+    --auto-exposure
+
+Workflow:
+1. Capture temporary frame
+2. Extract ROI (from config.yaml)
+3. Measure peak red channel intensity
+4. Adjust shutter proportionally
+5. Iterate until within tolerance
+6. Update runtime camera configuration
+7. Store selected shutter in metadata
+
+Important:
+- This does NOT change intrinsic calibration.
+- This does NOT modify YAML files.
+- It updates runtime configuration only.
+- It stabilises Gaussian / Steger ridge extraction.
+
+### Dry Run Mode
+
+Verified:
+
+    python3 src/run_scan.py --total-mm 20 --step-mm 1 --dry-run
+
+Behaviour:
+- Correct frame count calculation
+- Animated single-line progress bar
+- No hardware interaction
+- No image capture execution
+- Metadata written correctly
+
+Dry-run mode is safe for structural validation.
+
+### Preparation for Stage 5 — Centerline Extraction
+
+The system is now ready for integration of:
+
+- Subpixel ridge extraction (Steger method)
+- Centerline CSV export
+- Laser-plane triangulation
+- 3D reconstruction
+- Mesh generation
+
+Architecture now supports:
+- Plug-and-play centerline algorithms
+- Exposure calibration hooks
+- Laser plane configuration
+- Future distortion modelling
+
+### System Layering (Current State)
+
+Acquisition Layer:
+- StepDirStage
+- RpiCamStill
+
+Control Layer:
+- run_scan orchestrator
+- Exposure calibration
+- Metadata management
+
+Processing Layer (Next):
+- Steger ridge detection
+- Triangulation math
+- Point cloud generation
+- Mesh reconstruction
+
+### Key Insight
+
+The project is no longer a set of working scripts.
+
+It is now a structured acquisition and reconstruction pipeline.
+
+This enables:
+- Repeatable experiments
+- Clean calibration control
+- Robust 3D reconstruction
+- Research-grade reporting
+- Scalable algorithm experimentation
+
+System has transitioned from prototype scripts to instrument architecture.
