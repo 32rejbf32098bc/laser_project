@@ -100,9 +100,67 @@ def extract_centerline(mask: np.ndarray,
 
     return np.array(pts, dtype=np.float32)
 
-# TODO: This will go when we implement subpixel extraction via gaussian fit. For now it is useful for visualization.
-def overlay_points(bgr: np.ndarray, pts_yx: np.ndarray, radius: int = 1) -> np.ndarray:
-    out = bgr.copy()
-    for y, x in pts_yx:
-        cv2.circle(out, (int(round(x)), int(round(y))), radius, (0, 255, 0), -1)
-    return out
+def draw_centerline_overlay(
+    img_bgr: np.ndarray,
+    center_yx: np.ndarray,
+    color: tuple[int, int, int] = (0, 255, 0),
+    thickness: int = 1,
+) -> np.ndarray:
+    """
+    Return a copy of img_bgr with the centerline drawn on top.
+
+    Args:
+      img_bgr: HxWx3 uint8 BGR image.
+      center_yx: (N,2) float32 array of (y,x) points (ordered).
+      color: BGR color tuple.
+      thickness: polyline thickness in pixels.
+
+    Returns:
+      overlay: HxWx3 uint8 BGR image with polyline drawn.
+    """
+    overlay = img_bgr.copy()
+
+    if center_yx is None or center_yx.size == 0:
+        return overlay
+
+    # Convert (y,x) -> (x,y) int32 polyline for OpenCV
+    poly = np.round(np.stack([center_yx[:, 1], center_yx[:, 0]], axis=1)).astype(np.int32)
+    poly = poly.reshape(-1, 1, 2)
+
+    cv2.polylines(overlay, [poly], isClosed=False, color=color, thickness=thickness)
+    return overlay
+
+
+def save_centerline_overlay(
+    out_path: Path,
+    img_bgr: np.ndarray,
+    center_yx: np.ndarray,
+    color: tuple[int, int, int] = (0, 255, 0),
+    thickness: int = 1,
+    jpeg_quality: int = 95,
+) -> bool:
+    """
+    Save an overlay image with the centerline drawn.
+
+    Args:
+      out_path: where to write ('.jpg' recommended).
+      img_bgr: HxWx3 uint8 BGR image.
+      center_yx: (N,2) float32 array of (y,x) points.
+      color: BGR polyline color.
+      thickness: polyline thickness.
+      jpeg_quality: JPEG quality if saving .jpg/.jpeg.
+
+    Returns:
+      ok: True if written successfully.
+    """
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    overlay = draw_centerline_overlay(img_bgr, center_yx, color=color, thickness=thickness)
+
+    params: list[int] = []
+    ext = out_path.suffix.lower()
+    if ext in (".jpg", ".jpeg"):
+        params = [int(cv2.IMWRITE_JPEG_QUALITY), int(jpeg_quality)]
+
+    return bool(cv2.imwrite(str(out_path), overlay, params))

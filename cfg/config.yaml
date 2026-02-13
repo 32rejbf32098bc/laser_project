@@ -8,7 +8,6 @@ camera:
   gain: 1.0
   awb_gains: ""       # or "1.45,1.50"
   lens_pos: 7.879     # match calibration
-  quiet: true
 
 laser:
   wavelength_nm: 650

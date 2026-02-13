@@ -20,12 +20,15 @@ import argparse
 import time
 from dataclasses import dataclass, asdict
 from pathlib import Path
+import numpy as np
+import cv2
 
 from utils.io_utils import ensure_dir, now_stamp, print_progress, load_config, save_json
 from hardware.stage_gpiozero import StepDirStage, StageConfig
 from hardware.camera_rpicam import RpiCamConfig, RpiCamStill
-from utils.vision_utils import auto_exposure_calibrate  # you implement in vision_utils.py
-
+from utils.vision_utils import auto_exposure_calibrate, save_centerline_overlay
+from utils.processing.ridge import steger_laser_centerline_from_bgr
+from utils.processing.centerline import centerline_from_ridge_points
 
 # -----------------------------
 # Plans (data only)
@@ -79,7 +82,7 @@ def main():
     ap.add_argument("--mm-per-s", type=float, default=20.0)
     ap.add_argument("--settle-s", type=float, default=0.2)
     ap.add_argument("--direction", choices=["forward", "backward"], default="forward")
-    ap.add_argument("--return-home", action="store_true")
+    ap.add_argument("--no-return-home", action="store_true", help="Do NOT return stage to start position after scan")
 
     # Optional overrides (None unless provided)
     ap.add_argument("--step-pin", type=int, default=None)
@@ -96,6 +99,8 @@ def main():
     # Safety
     ap.add_argument("--dry-run", action="store_true")
 
+    # Debug
+    ap.add_argument("--debug-every", type=int, default=10, help="save overlay every N frames (0 = off)")
     args = ap.parse_args()
 
     # -----------------------------
@@ -228,23 +233,74 @@ def main():
                 stage.move_mm(motion_step_mm, args.mm_per_s, args.direction)
                 time.sleep(args.settle_s)
 
-        print("   Capture complete.")
-
+        print("   capture complete.")
 
         # -----------------------------
         # 4) Return home (soft)
         # -----------------------------
-        if args.return_home and not args.dry_run and stage is not None:
+        if not args.no_return_home and not args.dry_run and stage is not None:
             print("4) return home")
             stage.return_to_start(mm_per_s=args.mm_per_s)
+        else:
+            print("4) skipping return home")
 
         # -----------------------------
-        # 5) Processing placeholders
+        # 5) Processing (centerline extraction)
         # -----------------------------
-        print("5) processing (placeholders)")
-        # TODO: call process_scan_centerlines.py logic as a function
-        # TODO: triangulation
-        # TODO: mesh
+        print("5) centerline extraction")
+        overlay_dir = proc_dir / "overlays"
+        ensure_dir(overlay_dir)
+        centerline_dir = proc_dir / "centerlines"
+        ensure_dir(centerline_dir)
+
+        raw_paths = sorted(raw_dir.glob(f"{scan_id}_*.{cam_cfg.enc}"))
+
+        for i, img_path in enumerate(raw_paths):
+            print_progress(i + 1, len(raw_paths))
+
+            img_bgr = cv2.imread(str(img_path), cv2.IMREAD_COLOR)
+            if img_bgr is None:
+                print(f"\nWarning: could not read {img_path}")
+                continue
+
+            pts_yx, strength = steger_laser_centerline_from_bgr(
+                img_bgr,
+                sigma=2.0,
+                ridge_thresh=6.0,
+                t_max=1.0,
+            )
+
+            center_yx = centerline_from_ridge_points(
+                pts_yx,
+                strength,
+                bin_step_px=1.0,
+                smooth_win=31,
+                max_gap_px=80.0,
+            )
+
+            if center_yx.size == 0:
+                continue
+
+            # Save centerline as compressed numpy
+            out_npz = centerline_dir / (img_path.stem + "_centerline.npz")
+            np.savez_compressed(out_npz, center_yx=center_yx)
+
+            # Optional debug overlay (every frame or every N frames)
+            out_overlay = overlay_dir / (img_path.stem + "_overlay.jpg")
+            if args.debug_every > 0 and i % args.debug_every == 0:
+                save_centerline_overlay(out_overlay, img_bgr, center_yx)
+
+        print("\n   centerline extraction complete.")
+        # -----------------------------
+        # 6) Triangulation (TODO)
+        # -----------------------------
+        # TODO: pass center_yx to triangulation later
+
+        # -----------------------------
+        # 7) Mesh (TODO)
+        # -----------------------------
+        # TODO: pass triangulation output to mesh generation later.
+        # 3D point cloud output from triangulation can be saved as .ply or .xyz file.
 
         # -----------------------------
         # 6) Save metadata

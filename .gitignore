@@ -11,3 +11,6 @@ __pycache__/
 # system
 .DS_Store
 Thumbs.db
+
+# synthetic data
+synth_test_clean/
