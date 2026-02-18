@@ -194,13 +194,28 @@ def steger_laser_centerline_from_bgr(
     t_max: float = 0.5,
     adaptive_percentile: float = 95.0,
     adaptive_frac: float = 0.30,
+    roi = None,
 ):
     """
     Practical wrapper:
     - Use RED channel as grayscale (good for red laser)
     - Return (y,x) points
     """
-    red = img_bgr[:, :, 2]  # OpenCV BGR -> red channel
+    h, w = img_bgr.shape[:2]
+
+    if roi is not None:
+        x0, y0, x1, y1 = roi
+
+        x0 = max(0, x0)
+        y0 = max(0, y0)
+        x1 = min(w, x1)
+        y1 = min(h, y1)
+
+        img_work = img_bgr[y0:y1, x0:x1]
+    else:
+        img_work = img_bgr
+
+    red = img_work[:, :, 2]  # OpenCV BGR -> red channel
     pts_yx, strength = steger_ridge_points(
         red,
         sigma=sigma,
@@ -209,7 +224,42 @@ def steger_laser_centerline_from_bgr(
         adaptive_percentile=adaptive_percentile,
         adaptive_frac=adaptive_frac,
     )
+    if roi is not None and pts_yx.shape[0] > 0:
+        pts_yx[:, 0] += y0
+        pts_yx[:, 1] += x0
+
     return pts_yx, strength
+
+
+def ridge_quality_ok(red: np.ndarray, pts_yx: np.ndarray, strength: np.ndarray,
+                     min_pts: int = 800, min_strength_med: float = 6.0,
+                     max_bg_q: float = 0.995, min_red_peak: int = 40) -> tuple[bool, str]:
+    """
+    Decide if detected ridge points are likely a real laser stripe.
+    Works even if stripe orientation changes.
+    """
+    if pts_yx.shape[0] < min_pts:
+        return False, f"too_few_ridge_pts ({pts_yx.shape[0]} < {min_pts})"
+    if strength.size == 0:
+        return False, "no_strength"
+
+    # strength sanity (median is robust)
+    med = float(np.median(strength))
+    if med < min_strength_med:
+        return False, f"weak_ridge (median_strength={med:.2f} < {min_strength_med})"
+
+    # red peak gate (if there's no laser, red channel peak is usually low)
+    peak = int(np.max(red))
+    if peak < min_red_peak:
+        return False, f"no_red_peak (peak={peak} < {min_red_peak})"
+
+    # background saturation gate: if background is essentially flat low texture, ok.
+    # if extremely noisy might still pass; this is just a guard.
+    q = float(np.quantile(red, max_bg_q))
+    if q < 5:  # completely dark image etc
+        return False, "image_dark"
+
+    return True, "ok"
 
 
 # ----------------------------

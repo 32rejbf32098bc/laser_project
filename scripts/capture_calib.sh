@@ -3,74 +3,112 @@ set -euo pipefail
 
 # ============================================================
 # capture_calib.sh — Capture checkerboard calibration images
-# Camera: Raspberry Pi Camera Module 3
-#
-# Default: max resolution (4608x2592), PNG, manual exposure.
+# Camera: Raspberry Pi Camera Module 3 (IMX708)
 #
 # Usage:
 #   ./scripts/capture_calib.sh [OUT_DIR] [N] [SLEEP_S]
 #
-# Examples:
-#   ./scripts/capture_calib.sh
-#   ./scripts/capture_calib.sh data/raw/calib 25 1.2
-#
-# Optional environment overrides:
+# Optional env overrides:
 #   SHUTTER_US=8000 GAIN=1.0
-#   AWB_GAINS="1.6,1.7"
-#   LENS_POS=2.34
+#   AWB_GAINS="2.0,1.9"      # "R,B"  (locks AWB)
+#   LENS_POS=2.3276          # locks focus (recommended!)
 #   W=4608 H=2592 ENC=png
+#   MODE="4608:2592"         # try to force sensor mode (if supported)
+#   SAVE_META=1              # save metadata JSON per frame
+#   PROBE_AF=1               # run autofocus probe, print LensPosition, exit
 # ============================================================
 
 OUT_DIR="${1:-data/raw/calib}"
-N="${2:-25}"
-SLEEP_S="${3:-1.2}"
+N="${2:-30}"
+SLEEP_S="${3:-1.0}"
 
-# Camera Module 3 max still resolution (12MP 16:9)
 W="${W:-4608}"
 H="${H:-2592}"
-
-# Use PNG for calibration (lossless). Set ENC=jpg if you really want.
 ENC="${ENC:-png}"
 
-# Manual exposure for consistency (tweak if too bright/dark)
-SHUTTER_US="${SHUTTER_US:-8000}"   # microseconds (8000us ~ 1/125s)
+SHUTTER_US="${SHUTTER_US:-6000}"
 GAIN="${GAIN:-1.0}"
 
-# Optional: lock white balance (recommended once you have a good pair)
-# Format: "R,B" e.g. "1.6,1.7"
 AWB_GAINS="${AWB_GAINS:-}"
-
-# Optional: lock focus (highly recommended). Set after autofocus probe.
 LENS_POS="${LENS_POS:-}"
+
+MODE="${MODE:-4608:2592}"
+SAVE_META="${SAVE_META:-0}"
+PROBE_AF="${PROBE_AF:-0}"
 
 mkdir -p "$OUT_DIR"
 
 echo "=== capture_calib.sh (Cam v3) ==="
-echo "Out dir : $OUT_DIR"
-echo "Images  : $N"
-echo "Interval: ${SLEEP_S}s"
-echo "Res     : ${W}x${H}"
-echo "Enc     : $ENC"
-echo "Exposure: shutter=${SHUTTER_US}us gain=${GAIN}"
-echo "AWB     : ${AWB_GAINS:-auto}"
-echo "Focus   : ${LENS_POS:-auto/unchanged}"
+echo "Out dir  : $OUT_DIR"
+echo "Images   : $N"
+echo "Interval : ${SLEEP_S}s"
+echo "Res      : ${W}x${H}"
+echo "Mode     : ${MODE:-auto}"
+echo "Enc      : $ENC"
+echo "Exposure : shutter=${SHUTTER_US}us gain=${GAIN}"
+echo "AWB      : ${AWB_GAINS:-auto}"
+echo "Focus    : ${LENS_POS:-auto/unchanged}"
+echo "Meta     : SAVE_META=$SAVE_META"
 echo
 
-# If LENS_POS not set, do one autofocus probe to get it (recommended workflow).
-if [[ -z "$LENS_POS" ]]; then
-  echo "Tip: For best calibration, lock focus."
-  echo "Run once:"
-  echo "  rpicam-still --autofocus --metadata /tmp/meta.json --width $W --height $H --encoding png -o /tmp/af_probe.png --nopreview --timeout 2000"
-  echo "  grep -i LensPosition /tmp/meta.json"
-  echo "Then rerun with: LENS_POS=<value> ./scripts/capture_calib.sh"
+# ------------------------------------------------------------
+# Autofocus probe mode (one shot)
+# ------------------------------------------------------------
+if [[ "$PROBE_AF" == "1" ]]; then
+  echo "Running autofocus probe (one shot)..."
+  PROBE_IMG="$OUT_DIR/af_probe.${ENC}"
+  PROBE_META="$OUT_DIR/af_probe_meta.json"
+
+  ARGS=(--width "$W" --height "$H" --timeout 2000 )
+
+  # Try force mode (ignore failure)
+  if [[ -n "$MODE" ]]; then
+    ARGS+=(--mode "$MODE")
+  fi
+
+  if [[ "$ENC" == "png" ]]; then
+    ARGS+=(--encoding png -o "$PROBE_IMG")
+  else
+    ARGS+=(--encoding jpg --quality 95 -o "$PROBE_IMG")
+  fi
+
+  # Allow autofocus, dump metadata
+  ARGS+=(--autofocus --metadata "$PROBE_META")
+
+  rpicam-still "${ARGS[@]}"
+
   echo
+  echo "Saved: $PROBE_IMG"
+  echo "Meta : $PROBE_META"
+  echo
+  echo "LensPosition:"
+  python3 - <<'PY'
+import json, sys
+p = sys.argv[1]
+with open(p,"r") as f:
+    d = json.load(f)
+print(d.get("LensPosition", "NOT_FOUND"))
+PY
+"$PROBE_META"
+
+  echo
+  echo "Now rerun with: LENS_POS=<that_value> AWB_GAINS=<optional> ./scripts/capture_calib.sh"
+  exit 0
 fi
 
+# ------------------------------------------------------------
+# Main capture loop
+# ------------------------------------------------------------
 for i in $(seq -w 1 "$N"); do
-  TS="$(date +%Y%m%d_%H%M%S)"
+  TS="$(date +%Y%m%d_%H%M%S_%3N)"   # includes milliseconds
   OUT="$OUT_DIR/chess_${TS}_${i}.${ENC}"
 
-  ARGS=(-o "$OUT" --width "$W" --height "$H" --timeout 3000)
+  ARGS=(--width "$W" --height "$H" --timeout 2000 -o "$OUT")
+
+  # Try to force sensor mode (if supported). If it errors, you’ll see it.
+  if [[ -n "$MODE" ]]; then
+    ARGS+=(--mode "$MODE")
+  fi
 
   # Encoding
   if [[ "$ENC" == "png" ]]; then
@@ -82,14 +120,19 @@ for i in $(seq -w 1 "$N"); do
   # Manual exposure (stable across images)
   ARGS+=(--shutter "$SHUTTER_US" --gain "$GAIN")
 
-  # Optional: lock AWB if provided
+  # Optional: lock AWB
   if [[ -n "$AWB_GAINS" ]]; then
     ARGS+=(--awb manual --awbgains "$AWB_GAINS")
   fi
 
-  # Optional: lock focus if provided (Cam v3)
+  # Optional: lock focus
   if [[ -n "$LENS_POS" ]]; then
     ARGS+=(--autofocus-mode manual --lens-position "$LENS_POS")
+  fi
+
+  # Optional: metadata per frame
+  if [[ "$SAVE_META" == "1" ]]; then
+    ARGS+=(--metadata "$OUT_DIR/chess_${i}_meta.json")
   fi
 
   echo "[${i}/${N}] Capturing: $OUT"
@@ -99,4 +142,4 @@ for i in $(seq -w 1 "$N"); do
 done
 
 echo
-echo "Done. Saved $(ls -1 "$OUT_DIR" | wc -l) files in $OUT_DIR"
+echo "Done. Saved $N images in $OUT_DIR"

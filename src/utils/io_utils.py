@@ -21,7 +21,6 @@ def load_config(cfg_path: str | Path) -> dict:
     with cfg_path.open("r") as f:
         return yaml.safe_load(f)
 
-
 def now_stamp() -> str:
     """Timestamp string for filenames."""
     return time.strftime("%Y%m%d_%H%M%S")
@@ -44,3 +43,4 @@ def print_progress(k: int, n: int):
 def save_json(path: Path | str, data: dict) -> None:
     with open(path, "w") as f:
         json.dump(data, f, indent=2)
+

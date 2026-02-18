@@ -6,23 +6,44 @@ import numpy as np
 import cv2
 
 
-def crop_roi(img: np.ndarray, roi: dict | None):
+def crop_roi(img: np.ndarray, roi):
     """
-    roi dict format (suggested):
-      {"x": 0, "y": 0, "w": 100, "h": 200}
+    Supports:
+      - None
+      - dict: {"x": x, "y": y, "w": w, "h": h}
+      - list/tuple: [x0, y0, x1, y1]  (NOTE: x1/y1 are *max corners*, not width/height)
     Returns (img_roi, (ox, oy)) where ox/oy are offsets.
     """
     if roi is None:
         return img, (0, 0)
 
-    x = int(roi.get("x", 0))
-    y = int(roi.get("y", 0))
-    w = int(roi.get("w", img.shape[1] - x))
-    h = int(roi.get("h", img.shape[0] - y))
+    H, W = img.shape[:2]
 
-    x2 = min(img.shape[1], x + w)
-    y2 = min(img.shape[0], y + h)
-    return img[y:y2, x:x2], (x, y)
+    if isinstance(roi, dict):
+        x0 = int(roi.get("x", 0))
+        y0 = int(roi.get("y", 0))
+        w  = int(roi.get("w", W - x0))
+        h  = int(roi.get("h", H - y0))
+        x1 = x0 + w
+        y1 = y0 + h
+
+    elif isinstance(roi, (list, tuple)) and len(roi) == 4:
+        x0, y0, x1, y1 = map(int, roi)
+
+    else:
+        raise ValueError("roi must be None, dict, or [x0,y0,x1,y1]")
+
+    # clamp
+    x0 = max(0, min(W, x0))
+    x1 = max(0, min(W, x1))
+    y0 = max(0, min(H, y0))
+    y1 = max(0, min(H, y1))
+
+    if x1 <= x0 or y1 <= y0:
+        return img, (0, 0)
+
+    return img[y0:y1, x0:x1], (x0, y0)
+
 
 
 def hsv_mask_red(bgr: np.ndarray,
@@ -130,11 +151,28 @@ def draw_centerline_overlay(
     cv2.polylines(overlay, [poly], isClosed=False, color=color, thickness=thickness)
     return overlay
 
+def draw_points_overlay(
+    img_bgr: np.ndarray,
+    pts_yx: np.ndarray,
+    color: tuple[int, int, int] = (0, 255, 0),
+    radius: int = 1,
+) -> np.ndarray:
+    overlay = img_bgr.copy()
+    if pts_yx is None or pts_yx.size == 0:
+        return overlay
+
+    h, w = overlay.shape[:2]
+    pts = np.round(pts_yx).astype(np.int32)
+    for y, x in pts:
+        if 0 <= x < w and 0 <= y < h:
+            cv2.circle(overlay, (x, y), radius, color, -1)
+    return overlay
 
 def save_centerline_overlay(
     out_path: Path,
     img_bgr: np.ndarray,
     center_yx: np.ndarray,
+    roi: dict | None = None,   # <-- add this
     color: tuple[int, int, int] = (0, 255, 0),
     thickness: int = 1,
     jpeg_quality: int = 95,
@@ -156,7 +194,10 @@ def save_centerline_overlay(
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    overlay = draw_centerline_overlay(img_bgr, center_yx, color=color, thickness=thickness)
+    #overlay = draw_centerline_overlay(img_bgr, center_yx, color=color, thickness=thickness)
+    overlay = draw_points_overlay(img_bgr, center_yx, color=color, radius=1)
+    overlay = draw_roi_overlay(overlay, roi, color=(255, 0, 255), thickness=2)
+
 
     params: list[int] = []
     ext = out_path.suffix.lower()
@@ -164,3 +205,68 @@ def save_centerline_overlay(
         params = [int(cv2.IMWRITE_JPEG_QUALITY), int(jpeg_quality)]
 
     return bool(cv2.imwrite(str(out_path), overlay, params))
+
+def save_rejected_frame(
+    img_path: Path,
+    img_bgr,
+    reason: str,
+    reject_img_dir: Path,
+    reject_overlay_dir: Path | None = None,
+    pts_yx=None,
+):
+    """
+    Save rejected frame and optional overlay showing detected junk ridge.
+    """
+
+    stem = img_path.stem
+    out_img = reject_img_dir / f"{stem}__{reason}.jpg"
+
+    # save raw copy
+    cv2.imwrite(str(out_img), img_bgr)
+
+    # optional overlay
+    if reject_overlay_dir is not None and pts_yx is not None and pts_yx.size > 0:
+
+        overlay = img_bgr.copy()
+
+        for y, x in pts_yx.astype(int):
+            cv2.circle(overlay, (x, y), 1, (0,0,255), -1)
+
+        out_overlay = reject_overlay_dir / f"{stem}__{reason}_overlay.jpg"
+
+        cv2.imwrite(str(out_overlay), overlay)
+
+def draw_roi_overlay(img_bgr: np.ndarray, roi, color=(255, 0, 255), thickness=2):
+    overlay = img_bgr.copy()
+    if roi is None:
+        return overlay
+
+    H, W = overlay.shape[:2]
+
+    if isinstance(roi, dict):
+        x0 = int(roi.get("x", 0))
+        y0 = int(roi.get("y", 0))
+        x1 = x0 + int(roi.get("w", W - x0))
+        y1 = y0 + int(roi.get("h", H - y0))
+    elif isinstance(roi, (list, tuple)) and len(roi) == 4:
+        x0, y0, x1, y1 = map(int, roi)
+    else:
+        return overlay
+
+    x0 = max(0, min(W - 1, x0))
+    x1 = max(0, min(W - 1, x1))
+    y0 = max(0, min(H - 1, y0))
+    y1 = max(0, min(H - 1, y1))
+
+    cv2.rectangle(overlay, (x0, y0), (x1, y1), color, thickness)
+    cv2.putText(
+        overlay,
+        f"ROI [{x0},{y0}]→[{x1},{y1}]",
+        (10, 30),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.8,
+        color,
+        2,
+        cv2.LINE_AA,
+    )
+    return overlay

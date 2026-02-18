@@ -120,3 +120,28 @@ def centerline_from_ridge_points(
     center_xy = mu + np.outer(s_keep, u) + np.outer(t_keep, v)
     center_yx = np.stack([center_xy[:, 1], center_xy[:, 0]], axis=1).astype(np.float32)
     return center_yx
+
+
+def centerline_quality_ok(center_yx: np.ndarray,
+                          min_len_pts: int = 400,
+                          max_jump_px: float = 8.0,
+                          min_span_px: float = 0.0) -> tuple[bool, str]:
+    if center_yx is None or center_yx.size == 0:
+        return False, "empty_centerline"
+    if center_yx.shape[0] < min_len_pts:
+        return False, f"short_centerline ({center_yx.shape[0]} < {min_len_pts})"
+
+    # sort by x just for continuity check (not for extraction)
+    xy = center_yx[:, [1, 0]]  # x,y
+    xy = xy[np.argsort(xy[:, 0])]
+
+    # continuity: successive jumps not insane
+    d = np.linalg.norm(np.diff(xy, axis=0), axis=1)
+    if np.median(d) > max_jump_px:
+        return False, f"discontinuous (median_step={float(np.median(d)):.2f}px > {max_jump_px})"
+
+    span = float(xy[-1, 0] - xy[0, 0])
+    if span < min_span_px:
+        return False, f"too_short_span (span={span:.1f}px < {min_span_px})"
+
+    return True, "ok"

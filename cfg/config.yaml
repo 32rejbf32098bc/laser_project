@@ -7,7 +7,7 @@ camera:
   shutter_us: 8000
   gain: 1.0
   awb_gains: ""       # or "1.45,1.50"
-  lens_pos: 7.879     # match calibration
+  lens_pos: 2.327613353729248     # match calibration
 
 laser:
   wavelength_nm: 650
@@ -17,11 +17,11 @@ laser:
   hsv_red2_upper: [179, 255, 255]
 
 processing:
-  roi: null
+  roi: [2200, 0, 2900, 2592] # [0,0,4608,2592] #
   blur_ksize: 3
   morph_ksize: 3
   morph_iters: 1
-  min_pixels_per_row: 5
+  min_pixels_per_row: 1
   subpixel: true
 
 stage:
@@ -29,3 +29,5 @@ stage:
   dir_pin: 24
   microstep: 8
   lead_mm_per_rev: 8.0
+
+camera_calibration_yaml: "cfg/current_calibration.yaml"
