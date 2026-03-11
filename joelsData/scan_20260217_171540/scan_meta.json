@@ -1,0 +1,32 @@
+{
+  "scan_id": "scan_20260217_171540",
+  "created": "20260217_171540",
+  "motion": {
+    "total_mm": 77.0,
+    "step_mm": 0.1,
+    "direction": "forward"
+  },
+  "stage": {
+    "step_pin": 23,
+    "dir_pin": 24,
+    "microstep": 8,
+    "lead_mm_per_rev": 8.0
+  },
+  "camera": {
+    "width": 4608,
+    "height": 2592,
+    "enc": "jpg",
+    "quality": 95,
+    "timeout_ms": 300,
+    "shutter_us": 8000,
+    "gain": 1.0,
+    "awb_gains": "",
+    "lens_pos": 2.327613353729248
+  },
+  "roi": [
+    2000,
+    0,
+    2600,
+    2592
+  ]
+}

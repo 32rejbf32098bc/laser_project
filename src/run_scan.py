@@ -166,20 +166,32 @@ def main():
 
     n_frames = int(motion_total_mm // motion_step_mm) + 1
 
-    # Directories and metadata setup
-    input_scan_id = args.scan_id.strip()
-
-    if not input_scan_id:
-        print("ERROR: --scan-id required for reprocessing")
-        return
-
-    output_scan_id = args.output_scan_id.strip() or input_scan_id
+    # -------------------------------------------------
+    # Directories and metadata setup (input vs output IDs)
+    # -------------------------------------------------
+    if args.process_only:
+        # Reprocess existing raw frames
+        input_scan_id = args.process_scan_id.strip() or args.scan_id.strip()
+        if not input_scan_id:
+            print("ERROR: --process-only requires --process-scan-id (or --scan-id)")
+            return
+        output_scan_id = args.output_scan_id.strip() or f"{input_scan_id}_reprocessed"
+    else:
+        # New scan (capture + process)
+        input_scan_id = args.scan_id.strip() or f"scan_{now_stamp()}"
+        output_scan_id = input_scan_id
 
     raw_dir = Path(args.raw_root) / input_scan_id
     proc_dir = Path(args.proc_root) / output_scan_id
 
+    # Safety: reprocess requires existing raw folder
+    if args.process_only and not raw_dir.exists():
+        print(f"ERROR: raw scan folder not found: {raw_dir}")
+        return
+
     ensure_dir(raw_dir)
     ensure_dir(proc_dir)
+
 
     reject_dir = proc_dir / "rejected"
     ensure_dir(reject_dir)
@@ -310,7 +322,7 @@ def main():
         # Accumulators for one combined output
         xyz_chunks = []
         frame_idx_chunks = []
-        z_mm_chunks = []
+        stage_mm_chunks = []
 
         # Stage position per frame (simple model: k * step_mm, sign by direction)
         dir_sign = 1.0 if args.direction == "forward" else -1.0
@@ -380,16 +392,21 @@ def main():
                 continue
             if points_3d_cam.size == 0:
                 continue
-
+            """
             # Put points into a simple "scan/world" frame using stage motion along Z
             z_mm = dir_sign * (i * motion_step_mm)
             points_3d = points_3d_cam.copy()
             points_3d[:, 2] += z_mm
+            """
+            # Stage motion assumed along camera X axis
+            stage_mm = dir_sign * (i * motion_step_mm)
+            points_3d = points_3d_cam.copy()
+            points_3d[:, 0] += stage_mm
 
             # Accumulate
             xyz_chunks.append(points_3d.astype(np.float32))
             frame_idx_chunks.append(np.full((points_3d.shape[0],), i, dtype=np.int32))
-            z_mm_chunks.append(np.full((points_3d.shape[0],), z_mm, dtype=np.float32))
+            stage_mm_chunks.append(np.full((points_3d.shape[0],), stage_mm, dtype=np.float32))
 
             # Optional debug overlay
             if args.debug_every > 0 and i % args.debug_every == 0:
@@ -402,16 +419,41 @@ def main():
         else:
             xyz_all = np.concatenate(xyz_chunks, axis=0)
             frame_idx_all = np.concatenate(frame_idx_chunks, axis=0)
-            z_mm_all = np.concatenate(z_mm_chunks, axis=0)
+            stage_mm_all = np.concatenate(stage_mm_chunks, axis=0)
 
             out_pc = proc_dir / "pointcloud.npz"
             np.savez_compressed(
                 out_pc,
                 xyz=xyz_all,
                 frame_idx=frame_idx_all,
-                z_mm=z_mm_all,
+                stage_mm=stage_mm_all,
             )
             print(f"\n   Wrote: {out_pc}  (N={xyz_all.shape[0]})")
+            # -----------------------------
+            # Save PLY point cloud
+            # -----------------------------
+            out_ply = proc_dir / "pointcloud.ply"
+
+            xyz32 = xyz_all.astype(np.float32)
+            N = xyz32.shape[0]
+
+            with open(out_ply, "wb") as f:
+                # Write header
+                header = (
+                    "ply\n"
+                    "format binary_little_endian 1.0\n"
+                    f"element vertex {N}\n"
+                    "property float x\n"
+                    "property float y\n"
+                    "property float z\n"
+                    "end_header\n"
+                )
+                f.write(header.encode("ascii"))
+
+                # Write binary xyz
+                f.write(xyz32.tobytes())
+
+            print(f"   Wrote: {out_ply}")
 
         print("\n   processing complete.")
 
