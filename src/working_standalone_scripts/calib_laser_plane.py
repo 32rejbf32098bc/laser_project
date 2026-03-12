@@ -29,7 +29,6 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 from pathlib import Path
-
 from typing import Tuple, List, Optional
 
 import cv2
@@ -91,11 +90,27 @@ def load_camera_yaml(path: Path) -> CameraIntrinsics:
     return CameraIntrinsics(K=K, dist=dist)
 
 
-def write_laser_plane_yaml(out_path: Path, base_yaml_path: Optional[Path], n: np.ndarray, d: float) -> None:
+def write_laser_plane_yaml(
+    out_path: Path,
+    base_yaml_path: Optional[Path],
+    n: np.ndarray,
+    d: float,
+    metrics: Optional[dict] = None,
+    calibration: Optional[dict] = None,
+) -> None:
     plane = {
-        "laser_plane": {"n": [float(n[0]), float(n[1]), float(n[2])], "d": float(d)},
+        "laser_plane": {
+            "n": [float(n[0]), float(n[1]), float(n[2])],
+            "d": float(d),
+        },
         "units": "mm",
     }
+
+    if metrics is not None:
+        plane["laser_plane_metrics"] = metrics
+
+    if calibration is not None:
+        plane["laser_plane_calibration"] = calibration
 
     if base_yaml_path is not None and Path(base_yaml_path).exists():
         with open(base_yaml_path, "r", encoding="utf-8") as f:
@@ -166,8 +181,13 @@ def pick_best_channel(img_bgr: np.ndarray, roi):
     return redish
 
 
-def filter_points_on_board(X_cam: np.ndarray, R: np.ndarray, t: np.ndarray, spec: ChessboardSpec,
-                           margin_mm: float = 5.0) -> np.ndarray:
+def filter_points_on_board(
+    X_cam: np.ndarray,
+    R: np.ndarray,
+    t: np.ndarray,
+    spec: ChessboardSpec,
+    margin_mm: float = 5.0
+) -> np.ndarray:
     """
     Keep only intersections that lie on/near the physical checkerboard area.
     Board frame: origin at first inner corner, x across cols, y across rows, z ~ 0.
@@ -184,8 +204,9 @@ def filter_points_on_board(X_cam: np.ndarray, R: np.ndarray, t: np.ndarray, spec
     x, y, z = Xb[:, 0], Xb[:, 1], Xb[:, 2]
     m = float(margin_mm)
 
-    keep = (x >= -m) & (x <= w + m) & (y >= -m) & (y <= h + m) & (np.abs(z) <= 2.0*m)
+    keep = (x >= -m) & (x <= w + m) & (y >= -m) & (y <= h + m) & (np.abs(z) <= 2.0 * m)
     return X_cam[keep]
+
 
 def steger_laser_ridge_points_any_channel(
     img_bgr: np.ndarray,
@@ -311,7 +332,10 @@ def main() -> int:
     objp = chessboard_object_points(spec)
 
     img_dir = Path(args.images)
-    paths = sorted([p for p in img_dir.glob("*") if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff")])
+    paths = sorted([
+        p for p in img_dir.glob("*")
+        if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff")
+    ])
     if not paths:
         raise SystemExit(f"No images found in {img_dir}")
 
@@ -393,19 +417,61 @@ def main() -> int:
 
     # stats
     r_sorted = np.sort(r)
-    def pct(a, q): return float(a[int(np.clip(q * (a.size - 1), 0, a.size - 1))])
+
+    def pct(a, q):
+        return float(a[int(np.clip(q * (a.size - 1), 0, a.size - 1))])
+
+    mean_r = float(r.mean())
+    median_r = float(np.median(r))
+    p95_r = pct(r_sorted, 0.95)
+    max_r = float(r.max())
 
     print(f"Used images      : {used}/{len(paths)}")
     print(f"Total 3D points  : {Xcat.shape[0]:,} (mm)")
     print(f"Laser plane (cam): n={n.tolist()}, d={d:.6f} mm")
-    print(f"Residual |dist|  : mean={float(r.mean()):.4f} mm  "
-          f"median={float(np.median(r)):.4f} mm  "
-          f"P95={pct(r_sorted, 0.95):.4f} mm  "
-          f"max={float(r.max()):.4f} mm")
+    print(f"Residual |dist|  : mean={mean_r:.4f} mm  "
+          f"median={median_r:.4f} mm  "
+          f"P95={p95_r:.4f} mm  "
+          f"max={max_r:.4f} mm")
+
+    metrics = {
+        "used_images": int(used),
+        "total_images": int(len(paths)),
+        "total_3d_points": int(Xcat.shape[0]),
+        "robust_refit": bool(args.robust),
+        "inlier_mm": float(args.inlier_mm),
+        "residual_mm": {
+            "mean": mean_r,
+            "median": median_r,
+            "p95": p95_r,
+            "max": max_r,
+        },
+    }
+
+    calibration = {
+        "checkerboard": {
+            "rows": int(args.rows),
+            "cols": int(args.cols),
+            "square_mm": float(args.square_mm),
+        },
+        "ridge_detection": {
+            "sigma": float(args.sigma),
+            "ridge_thresh": float(args.ridge_thresh),
+            "tmax": float(args.tmax),
+        },
+        "roi": list(roi) if roi is not None else None,
+    }
 
     out_yaml = Path(args.out_yaml)
     base_yaml = Path(args.update_yaml) if args.update_yaml else None
-    write_laser_plane_yaml(out_yaml, base_yaml, n, d)
+    write_laser_plane_yaml(
+        out_yaml,
+        base_yaml,
+        n,
+        d,
+        metrics=metrics,
+        calibration=calibration,
+    )
     print(f"Wrote: {out_yaml}")
     return 0
 
