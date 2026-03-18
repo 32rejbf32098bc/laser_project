@@ -30,4 +30,5 @@ stage:
   microstep: 8
   lead_mm_per_rev: 8.0
 
-camera_calibration_yaml: "cfg/current_calibration.yaml"
+# camera_calibration_yaml: "cfg/current_calibration.yaml"
+camera_calibration_yaml: "cfg/new_calibration.yaml"

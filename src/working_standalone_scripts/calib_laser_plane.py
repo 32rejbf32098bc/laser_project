@@ -84,7 +84,6 @@ def load_camera_yaml(path: Path) -> CameraIntrinsics:
         raise KeyError("Could not find camera intrinsics (camera.K or K or camera_matrix) in YAML")
 
     if dist.size == 0:
-        # allow no distortion, but normally you want it
         dist = np.zeros((5,), dtype=np.float64)
 
     return CameraIntrinsics(K=K, dist=dist)
@@ -138,7 +137,6 @@ def find_chessboard(gray: np.ndarray, spec: ChessboardSpec) -> Optional[np.ndarr
     """Return refined corners (N,1,2) or None."""
     pattern_size = (spec.cols, spec.rows)
 
-    # Prefer SB if available (more robust)
     if hasattr(cv2, "findChessboardCornersSB"):
         flags = cv2.CALIB_CB_NORMALIZE_IMAGE | cv2.CALIB_CB_EXHAUSTIVE
         ok, corners = cv2.findChessboardCornersSB(gray, pattern_size, flags)
@@ -170,7 +168,7 @@ def solve_board_pose(corners: np.ndarray, objp: np.ndarray, cam: CameraIntrinsic
 
 
 # -----------------------------
-# Laser ridge extraction (channel-robust)
+# Laser ridge extraction
 # -----------------------------
 def pick_best_channel(img_bgr: np.ndarray, roi):
     b = img_bgr[..., 0].astype(np.int16)
@@ -195,7 +193,6 @@ def filter_points_on_board(
     if X_cam.shape[0] == 0:
         return X_cam
 
-    # camera -> board: Xb = R^T (X - t)
     Xb = (R.T @ (X_cam - t.reshape(1, 3)).T).T
 
     w = (spec.cols - 1) * spec.square_mm
@@ -221,7 +218,6 @@ def steger_laser_ridge_points_any_channel(
       strength: (N,) float32
     """
     chan = pick_best_channel(img_bgr, roi)
-    # If ROI, run Steger only inside ROI for speed and fewer false positives
     if roi is not None:
         x0, y0, x1, y1 = roi
         sub = chan[y0:y1, x0:x1]
@@ -286,7 +282,6 @@ def fit_plane_svd(X: np.ndarray) -> Tuple[np.ndarray, float]:
     n = n / (np.linalg.norm(n) + 1e-12)
     d = -float(n @ c)
 
-    # Make normal direction consistent (optional)
     if n[2] < 0:
         n = -n
         d = -d
@@ -296,6 +291,50 @@ def fit_plane_svd(X: np.ndarray) -> Tuple[np.ndarray, float]:
 def plane_residuals_mm(X: np.ndarray, n: np.ndarray, d: float) -> np.ndarray:
     """Signed distance to plane (mm)."""
     return (X @ n) + d
+
+
+# -----------------------------
+# Debug helpers
+# -----------------------------
+def make_overlay(
+    img: np.ndarray,
+    spec: ChessboardSpec,
+    corners: Optional[np.ndarray] = None,
+    pts_yx: Optional[np.ndarray] = None,
+    roi: Optional[Tuple[int, int, int, int]] = None,
+    text_lines: Optional[List[str]] = None,
+) -> np.ndarray:
+    overlay = img.copy()
+
+    if roi is not None:
+        x0, y0, x1, y1 = roi
+        cv2.rectangle(overlay, (x0, y0), (x1, y1), (255, 0, 255), 2)
+
+    if corners is not None:
+        cv2.drawChessboardCorners(overlay, (spec.cols, spec.rows), corners, True)
+
+    if pts_yx is not None and pts_yx.size > 0:
+        uv = pts_yx[:, ::-1]
+        step = max(1, uv.shape[0] // 1200)
+        for (u, v) in uv[::step]:
+            cv2.circle(overlay, (int(round(u)), int(round(v))), 1, (0, 255, 255), -1)
+
+    if text_lines:
+        y = 30
+        for line in text_lines:
+            cv2.putText(
+                overlay,
+                line,
+                (20, y),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.8,
+                (0, 255, 0),
+                2,
+                cv2.LINE_AA,
+            )
+            y += 28
+
+    return overlay
 
 
 # -----------------------------
@@ -354,49 +393,155 @@ def main() -> int:
     all_X: List[np.ndarray] = []
     used = 0
 
-    for p in paths:
+    for i, p in enumerate(paths, start=1):
+        tag = f"[{i:02d}/{len(paths):02d}] {p.name}"
+
         img = cv2.imread(str(p), cv2.IMREAD_COLOR)
         if img is None:
+            print(f"[REJECT] {tag}  could_not_read_image")
             continue
 
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         corners = find_chessboard(gray, spec)
         if corners is None:
+            print(f"[REJECT] {tag}  checkerboard_not_found")
+            if args.debug:
+                overlay = make_overlay(
+                    img,
+                    spec,
+                    corners=None,
+                    pts_yx=None,
+                    roi=roi,
+                    text_lines=["REJECT: checkerboard_not_found"],
+                )
+                outp = Path(args.debug_dir) / f"{p.stem}_REJECT_checkerboard_not_found.jpg"
+                cv2.imwrite(str(outp), overlay)
             continue
 
-        R, t = solve_board_pose(corners, objp, cam)
+        try:
+            R, t = solve_board_pose(corners, objp, cam)
+        except Exception as e:
+            print(f"[REJECT] {tag}  solvePnP_failed: {e}")
+            if args.debug:
+                overlay = make_overlay(
+                    img,
+                    spec,
+                    corners=corners,
+                    pts_yx=None,
+                    roi=roi,
+                    text_lines=[f"REJECT: solvePnP_failed", str(e)],
+                )
+                outp = Path(args.debug_dir) / f"{p.stem}_REJECT_solvePnP_failed.jpg"
+                cv2.imwrite(str(outp), overlay)
+            continue
 
         pts_yx, strength = steger_laser_ridge_points_any_channel(
             img, roi=roi, sigma=args.sigma, ridge_thresh=args.ridge_thresh, t_max=args.tmax
         )
         if pts_yx.size == 0:
+            print(f"[REJECT] {tag}  no_ridge_points")
+            if args.debug:
+                overlay = make_overlay(
+                    img,
+                    spec,
+                    corners=corners,
+                    pts_yx=None,
+                    roi=roi,
+                    text_lines=["REJECT: no_ridge_points"],
+                )
+                outp = Path(args.debug_dir) / f"{p.stem}_REJECT_no_ridge_points.jpg"
+                cv2.imwrite(str(outp), overlay)
             continue
 
-        # downsample ridge points per image for speed / balance
+        n_ridge_raw = int(pts_yx.shape[0])
+
         if pts_yx.shape[0] > args.max_pts_per_img:
             idx = np.random.choice(pts_yx.shape[0], size=args.max_pts_per_img, replace=False)
             pts_yx = pts_yx[idx]
+            if strength is not None and strength.shape[0] == n_ridge_raw:
+                strength = strength[idx]
+
+        n_ridge_used = int(pts_yx.shape[0])
 
         if pts_yx.shape[0] < args.min_pts_per_img:
+            print(
+                f"[REJECT] {tag}  too_few_ridge_points "
+                f"(raw={n_ridge_raw}, used={n_ridge_used}, min={args.min_pts_per_img})"
+            )
+            if args.debug:
+                overlay = make_overlay(
+                    img,
+                    spec,
+                    corners=corners,
+                    pts_yx=pts_yx,
+                    roi=roi,
+                    text_lines=[
+                        "REJECT: too_few_ridge_points",
+                        f"raw={n_ridge_raw} used={n_ridge_used} min={args.min_pts_per_img}",
+                    ],
+                )
+                outp = Path(args.debug_dir) / f"{p.stem}_REJECT_too_few_ridge_points.jpg"
+                cv2.imwrite(str(outp), overlay)
             continue
 
         uv = pts_yx[:, ::-1].astype(np.float64)  # (y,x)->(x,y)
         xy = undistort_points(uv, cam)
         X = intersect_rays_with_board_plane(xy, R, t)
+
+        n_x_before_board = int(X.shape[0])
+
         X = filter_points_on_board(X, R, t, spec, margin_mm=5.0)
 
+        n_x_on_board = int(X.shape[0])
+
         if X.shape[0] < args.min_pts_per_img:
+            print(
+                f"[REJECT] {tag}  too_few_points_on_board "
+                f"(ridge_raw={n_ridge_raw}, ridge_used={n_ridge_used}, "
+                f"x_before_board={n_x_before_board}, x_on_board={n_x_on_board}, "
+                f"min={args.min_pts_per_img})"
+            )
+            if args.debug:
+                overlay = make_overlay(
+                    img,
+                    spec,
+                    corners=corners,
+                    pts_yx=pts_yx,
+                    roi=roi,
+                    text_lines=[
+                        "REJECT: too_few_points_on_board",
+                        f"ridge_raw={n_ridge_raw} ridge_used={n_ridge_used}",
+                        f"x_before_board={n_x_before_board} x_on_board={n_x_on_board}",
+                        f"min={args.min_pts_per_img}",
+                    ],
+                )
+                outp = Path(args.debug_dir) / f"{p.stem}_REJECT_too_few_points_on_board.jpg"
+                cv2.imwrite(str(outp), overlay)
             continue
 
         all_X.append(X)
         used += 1
 
+        print(
+            f"[OK] {tag}  "
+            f"ridge_raw={n_ridge_raw}  ridge_used={n_ridge_used}  "
+            f"x_before_board={n_x_before_board}  x_on_board={n_x_on_board}"
+        )
+
         if args.debug:
-            overlay = img.copy()
-            step = max(1, uv.shape[0] // 1200)
-            for (u, v) in uv[::step]:
-                cv2.circle(overlay, (int(u), int(v)), 1, (0, 255, 0), -1)
-            outp = Path(args.debug_dir) / (p.stem + "_ridge.jpg")
+            overlay = make_overlay(
+                img,
+                spec,
+                corners=corners,
+                pts_yx=pts_yx,
+                roi=roi,
+                text_lines=[
+                    "OK",
+                    f"ridge_raw={n_ridge_raw} ridge_used={n_ridge_used}",
+                    f"x_before_board={n_x_before_board} x_on_board={n_x_on_board}",
+                ],
+            )
+            outp = Path(args.debug_dir) / f"{p.stem}_OK_ridge.jpg"
             cv2.imwrite(str(outp), overlay)
 
     if used < 5:
@@ -404,7 +549,6 @@ def main() -> int:
 
     Xcat = np.concatenate(all_X, axis=0)
 
-    # initial fit
     n, d = fit_plane_svd(Xcat)
     r = np.abs(plane_residuals_mm(Xcat, n, d))
 
@@ -415,7 +559,6 @@ def main() -> int:
             n, d = fit_plane_svd(Xin)
             r = np.abs(plane_residuals_mm(Xcat, n, d))
 
-    # stats
     r_sorted = np.sort(r)
 
     def pct(a, q):
@@ -429,10 +572,12 @@ def main() -> int:
     print(f"Used images      : {used}/{len(paths)}")
     print(f"Total 3D points  : {Xcat.shape[0]:,} (mm)")
     print(f"Laser plane (cam): n={n.tolist()}, d={d:.6f} mm")
-    print(f"Residual |dist|  : mean={mean_r:.4f} mm  "
-          f"median={median_r:.4f} mm  "
-          f"P95={p95_r:.4f} mm  "
-          f"max={max_r:.4f} mm")
+    print(
+        f"Residual |dist|  : mean={mean_r:.4f} mm  "
+        f"median={median_r:.4f} mm  "
+        f"P95={p95_r:.4f} mm  "
+        f"max={max_r:.4f} mm"
+    )
 
     metrics = {
         "used_images": int(used),

@@ -3,7 +3,7 @@
 Camera calibration (checkerboard) for Raspberry Pi vision pipeline.
 
 Usage example:
-  python3 src/calibrate_camera.py \
+  python3 src/working_standalone_scripts/calibrate_camera.py \
     --images "data/raw/calib_cam/*.png" \
     --rows 10 --cols 7 \
     --square-mm 25.0 \

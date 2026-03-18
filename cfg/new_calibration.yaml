@@ -1,0 +1,71 @@
+camera:
+  image_size:
+    w: 4608
+    h: 2592
+  K:
+  - - 3464.8421300024856
+    - 0.0
+    - 2342.9449792581217
+  - - 0.0
+    - 3455.336747308429
+    - 1300.2426991881453
+  - - 0.0
+    - 0.0
+    - 1.0
+  dist:
+  - -0.026281694072722715
+  - 0.4923117925097011
+  - -0.0004294684235853115
+  - 0.0026824502876205063
+  - -1.0489702721709233
+  fx: 3464.8421300024856
+  fy: 3455.336747308429
+  cx: 2342.9449792581217
+  cy: 1300.2426991881453
+checkerboard:
+  rows_inner: 10
+  cols_inner: 7
+  square_mm: 15.9
+quality:
+  rms_calibrateCamera_px: 0.6701327474864719
+  mean_reproj_error_px: 0.6701324435781262
+  used_images: 23
+  total_images: 30
+capture_settings:
+  lens_pos: 2.3276
+  shutter_us: 8000
+  gain: 1.0
+
+laser_plane:
+  n:
+  - 0.9760062283167584
+  - -0.017839566561036642
+  - 0.21701058073239185
+  d: -80.57861772560797
+units: mm
+laser_plane_metrics:
+  used_images: 10
+  total_images: 40
+  total_3d_points: 5022
+  robust_refit: true
+  inlier_mm: 2.0
+  residual_mm:
+    mean: 0.1177675393073593
+    median: 0.10195102866995143
+    p95: 0.283386739389087
+    max: 0.8876903206737694
+laser_plane_calibration:
+  checkerboard:
+    rows: 10
+    cols: 7
+    square_mm: 15.9
+  ridge_detection:
+    sigma: 2.0
+    ridge_thresh: 6.0
+    tmax: 1.0
+  roi: null
+
+meta:
+  temporary: false
+  note: "Calibration for improved camera and laser plane."
+  created: "2026-03-16"

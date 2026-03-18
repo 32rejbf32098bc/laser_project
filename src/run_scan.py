@@ -421,7 +421,7 @@ def main():
             frame_idx_all = np.concatenate(frame_idx_chunks, axis=0)
             stage_mm_all = np.concatenate(stage_mm_chunks, axis=0)
 
-            out_pc = proc_dir / "pointcloud.npz"
+            out_pc = proc_dir / f"{output_scan_id}.npz"
             np.savez_compressed(
                 out_pc,
                 xyz=xyz_all,
@@ -432,7 +432,7 @@ def main():
             # -----------------------------
             # Save PLY point cloud
             # -----------------------------
-            out_ply = proc_dir / "pointcloud.ply"
+            out_ply = proc_dir / f"{output_scan_id}.ply"
 
             xyz32 = xyz_all.astype(np.float32)
             N = xyz32.shape[0]
