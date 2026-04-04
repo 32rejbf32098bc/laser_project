@@ -1,8 +1,6 @@
 # data
 data/
 
-# calibration outputs
-calib/
 
 # python
 __pycache__/

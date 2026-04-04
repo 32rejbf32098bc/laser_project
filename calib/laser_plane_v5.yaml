@@ -1,0 +1,28 @@
+laser_plane:
+  n:
+  - 0.9760062283167584
+  - -0.017839566561036642
+  - 0.21701058073239185
+  d: -80.57861772560797
+units: mm
+laser_plane_metrics:
+  used_images: 10
+  total_images: 40
+  total_3d_points: 5022
+  robust_refit: true
+  inlier_mm: 2.0
+  residual_mm:
+    mean: 0.1177675393073593
+    median: 0.10195102866995143
+    p95: 0.283386739389087
+    max: 0.8876903206737694
+laser_plane_calibration:
+  checkerboard:
+    rows: 10
+    cols: 7
+    square_mm: 15.9
+  ridge_detection:
+    sigma: 2.0
+    ridge_thresh: 6.0
+    tmax: 1.0
+  roi: null
