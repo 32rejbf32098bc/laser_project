@@ -215,9 +215,17 @@ def steger_laser_centerline_from_bgr(
     else:
         img_work = img_bgr
 
-    red = img_work[:, :, 2]  # OpenCV BGR -> red channel
+    # Looking at ONLY red coloued pixels ( NEW reddish pixels not only raw red channel)
+    #red = img_work[:, :, 2]  # OpenCV BGR -> red channel
+    b = img_work[:, :, 0].astype(np.int16)
+    g = img_work[:, :, 1].astype(np.int16)
+    r = img_work[:, :, 2].astype(np.int16)
+
+    redish = r - np.maximum(g, b)
+    redish = np.clip(redish, 0, 255).astype(np.uint8)
+
     pts_yx, strength = steger_ridge_points(
-        red,
+        redish,
         sigma=sigma,
         ridge_thresh=ridge_thresh,
         t_max=t_max,

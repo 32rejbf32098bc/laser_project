@@ -1,0 +1,47 @@
+{
+  "video": "captures/video_tests/video_test_20260319_090926.avi",
+  "meta_json": "captures/video_tests/video_test_20260319_090926.json",
+  "config": "cfg/config.yaml",
+  "roi": [
+    0,
+    0,
+    1280,
+    720
+  ],
+  "fps": 30.0,
+  "total_frames": 302,
+  "tested_frames": [
+    {
+      "frame_index": 0,
+      "points": 2268,
+      "mean_strength": 21.49449920654297,
+      "sensor_timestamp_ns": 512518460470000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184
+    },
+    {
+      "frame_index": 151,
+      "points": 2257,
+      "mean_strength": 21.53585433959961,
+      "sensor_timestamp_ns": 512523491540000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184
+    },
+    {
+      "frame_index": 301,
+      "points": 2182,
+      "mean_strength": 21.97271728515625,
+      "sensor_timestamp_ns": 512528489292000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184
+    }
+  ],
+  "ridge_params": {
+    "sigma": 2.0,
+    "ridge_thresh": 6.0,
+    "tmax": 1.0
+  }
+}

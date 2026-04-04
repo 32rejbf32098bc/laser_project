@@ -1,0 +1,5267 @@
+{
+  "created": "20260319_095526",
+  "video_file": "captures/video_stage_tests/video_stage_test_20260319_095526.avi",
+  "frames_written": 373,
+  "resolution": {
+    "w": 1280,
+    "h": 720
+  },
+  "fps_target": 30,
+  "capture_settings": {
+    "shutter_us": 8000,
+    "gain": 1.0,
+    "lens_pos": 2.3276,
+    "ae_enable": false,
+    "awb_enable": false,
+    "codec": "MJPG"
+  },
+  "stage_settings": {
+    "step_pin": 23,
+    "dir_pin": 24,
+    "steps_per_rev": 200,
+    "microstep": 8,
+    "lead_mm_per_rev": 8.0,
+    "min_step_delay_us": 250,
+    "move_mm": 50.0,
+    "move_speed_mm_s": 5.0,
+    "direction": "forward",
+    "pre_roll_s": 0.5,
+    "post_roll_s": 0.5,
+    "return_home": true,
+    "return_home_speed_mm_s": 5.0
+  },
+  "timing": {
+    "capture_start_monotonic_ns": 515278775636750,
+    "stage_start_monotonic_ns": 515279279063533,
+    "stage_end_monotonic_ns": 515290633293297
+  },
+  "stage_result": {
+    "ok": true,
+    "steps_moved": 10000,
+    "error": null
+  },
+  "frame_metadata": [
+    {
+      "frame_index": 0,
+      "capture_elapsed_s": 0.016234593,
+      "sensor_timestamp_ns": 515278755167000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.19175720214844
+    },
+    {
+      "frame_index": 1,
+      "capture_elapsed_s": 0.038308563,
+      "sensor_timestamp_ns": 515278788488000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.194580078125
+    },
+    {
+      "frame_index": 2,
+      "capture_elapsed_s": 0.071012322,
+      "sensor_timestamp_ns": 515278821806000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.191078186035156
+    },
+    {
+      "frame_index": 3,
+      "capture_elapsed_s": 0.104069861,
+      "sensor_timestamp_ns": 515278855125000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.173221588134766
+    },
+    {
+      "frame_index": 4,
+      "capture_elapsed_s": 0.136630676,
+      "sensor_timestamp_ns": 515278888444000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.205833435058594
+    },
+    {
+      "frame_index": 5,
+      "capture_elapsed_s": 0.16995953,
+      "sensor_timestamp_ns": 515278921762000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.18301773071289
+    },
+    {
+      "frame_index": 6,
+      "capture_elapsed_s": 0.203076625,
+      "sensor_timestamp_ns": 515278955080000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.18534469604492
+    },
+    {
+      "frame_index": 7,
+      "capture_elapsed_s": 0.237098501,
+      "sensor_timestamp_ns": 515278988399000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.18080139160156
+    },
+    {
+      "frame_index": 8,
+      "capture_elapsed_s": 0.270194059,
+      "sensor_timestamp_ns": 515279021717000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.16983413696289
+    },
+    {
+      "frame_index": 9,
+      "capture_elapsed_s": 0.303259801,
+      "sensor_timestamp_ns": 515279055035000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.17270278930664
+    },
+    {
+      "frame_index": 10,
+      "capture_elapsed_s": 0.336399433,
+      "sensor_timestamp_ns": 515279088352000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.205589294433594
+    },
+    {
+      "frame_index": 11,
+      "capture_elapsed_s": 0.369646454,
+      "sensor_timestamp_ns": 515279121672000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.19451904296875
+    },
+    {
+      "frame_index": 12,
+      "capture_elapsed_s": 0.402966198,
+      "sensor_timestamp_ns": 515279154989000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.1661262512207
+    },
+    {
+      "frame_index": 13,
+      "capture_elapsed_s": 0.437202353,
+      "sensor_timestamp_ns": 515279188309000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.16976547241211
+    },
+    {
+      "frame_index": 14,
+      "capture_elapsed_s": 0.470349355,
+      "sensor_timestamp_ns": 515279221630000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.15837478637695
+    },
+    {
+      "frame_index": 15,
+      "capture_elapsed_s": 0.503134689,
+      "sensor_timestamp_ns": 515279254946000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.173439025878906
+    },
+    {
+      "frame_index": 16,
+      "capture_elapsed_s": 0.536038376,
+      "sensor_timestamp_ns": 515279288265000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.24116516113281
+    },
+    {
+      "frame_index": 17,
+      "capture_elapsed_s": 0.569128544,
+      "sensor_timestamp_ns": 515279321578000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.24392318725586
+    },
+    {
+      "frame_index": 18,
+      "capture_elapsed_s": 0.604437093,
+      "sensor_timestamp_ns": 515279354902000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.369415283203125
+    },
+    {
+      "frame_index": 19,
+      "capture_elapsed_s": 0.639070583,
+      "sensor_timestamp_ns": 515279388221000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.31575012207031
+    },
+    {
+      "frame_index": 20,
+      "capture_elapsed_s": 0.670386725,
+      "sensor_timestamp_ns": 515279421538000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.25181579589844
+    },
+    {
+      "frame_index": 21,
+      "capture_elapsed_s": 0.704982845,
+      "sensor_timestamp_ns": 515279454857000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.22905349731445
+    },
+    {
+      "frame_index": 22,
+      "capture_elapsed_s": 0.738783795,
+      "sensor_timestamp_ns": 515279488175000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.14557647705078
+    },
+    {
+      "frame_index": 23,
+      "capture_elapsed_s": 0.769679676,
+      "sensor_timestamp_ns": 515279521494000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.1551399230957
+    },
+    {
+      "frame_index": 24,
+      "capture_elapsed_s": 0.802255509,
+      "sensor_timestamp_ns": 515279554812000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.11845397949219
+    },
+    {
+      "frame_index": 25,
+      "capture_elapsed_s": 0.83702287,
+      "sensor_timestamp_ns": 515279588131000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.15011215209961
+    },
+    {
+      "frame_index": 26,
+      "capture_elapsed_s": 0.869432147,
+      "sensor_timestamp_ns": 515279621449000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.15764236450195
+    },
+    {
+      "frame_index": 27,
+      "capture_elapsed_s": 0.902412685,
+      "sensor_timestamp_ns": 515279654768000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.166748046875
+    },
+    {
+      "frame_index": 28,
+      "capture_elapsed_s": 0.93566541,
+      "sensor_timestamp_ns": 515279688086000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.1453857421875
+    },
+    {
+      "frame_index": 29,
+      "capture_elapsed_s": 0.969126284,
+      "sensor_timestamp_ns": 515279721405000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.21440505981445
+    },
+    {
+      "frame_index": 30,
+      "capture_elapsed_s": 1.002418453,
+      "sensor_timestamp_ns": 515279754723000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.57754135131836
+    },
+    {
+      "frame_index": 31,
+      "capture_elapsed_s": 1.036194995,
+      "sensor_timestamp_ns": 515279788043000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.21372985839844
+    },
+    {
+      "frame_index": 32,
+      "capture_elapsed_s": 1.069817851,
+      "sensor_timestamp_ns": 515279821359000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.18471908569336
+    },
+    {
+      "frame_index": 33,
+      "capture_elapsed_s": 1.102520815,
+      "sensor_timestamp_ns": 515279854678000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.012367248535156
+    },
+    {
+      "frame_index": 34,
+      "capture_elapsed_s": 1.136041948,
+      "sensor_timestamp_ns": 515279887996000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.0617561340332
+    },
+    {
+      "frame_index": 35,
+      "capture_elapsed_s": 1.169149746,
+      "sensor_timestamp_ns": 515279921316000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 60.11002731323242
+    },
+    {
+      "frame_index": 36,
+      "capture_elapsed_s": 1.20234023,
+      "sensor_timestamp_ns": 515279954633000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.95818328857422
+    },
+    {
+      "frame_index": 37,
+      "capture_elapsed_s": 1.236165791,
+      "sensor_timestamp_ns": 515279987952000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.88014221191406
+    },
+    {
+      "frame_index": 38,
+      "capture_elapsed_s": 1.269788869,
+      "sensor_timestamp_ns": 515280021270000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.82975387573242
+    },
+    {
+      "frame_index": 39,
+      "capture_elapsed_s": 1.302526055,
+      "sensor_timestamp_ns": 515280054589000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.847190856933594
+    },
+    {
+      "frame_index": 40,
+      "capture_elapsed_s": 1.33576852,
+      "sensor_timestamp_ns": 515280087908000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.78563690185547
+    },
+    {
+      "frame_index": 41,
+      "capture_elapsed_s": 1.369005875,
+      "sensor_timestamp_ns": 515280121226000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.7542724609375
+    },
+    {
+      "frame_index": 42,
+      "capture_elapsed_s": 1.402680379,
+      "sensor_timestamp_ns": 515280154545000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.775543212890625
+    },
+    {
+      "frame_index": 43,
+      "capture_elapsed_s": 1.43595603,
+      "sensor_timestamp_ns": 515280187862000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.811405181884766
+    },
+    {
+      "frame_index": 44,
+      "capture_elapsed_s": 1.469199607,
+      "sensor_timestamp_ns": 515280221181000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.74033737182617
+    },
+    {
+      "frame_index": 45,
+      "capture_elapsed_s": 1.50209196,
+      "sensor_timestamp_ns": 515280254500000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.72637176513672
+    },
+    {
+      "frame_index": 46,
+      "capture_elapsed_s": 1.535423092,
+      "sensor_timestamp_ns": 515280287818000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.73025131225586
+    },
+    {
+      "frame_index": 47,
+      "capture_elapsed_s": 1.568835725,
+      "sensor_timestamp_ns": 515280321137000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.70450210571289
+    },
+    {
+      "frame_index": 48,
+      "capture_elapsed_s": 1.602063709,
+      "sensor_timestamp_ns": 515280354455000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.71696472167969
+    },
+    {
+      "frame_index": 49,
+      "capture_elapsed_s": 1.63588627,
+      "sensor_timestamp_ns": 515280387774000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.68809509277344
+    },
+    {
+      "frame_index": 50,
+      "capture_elapsed_s": 1.669113254,
+      "sensor_timestamp_ns": 515280421092000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.711544036865234
+    },
+    {
+      "frame_index": 51,
+      "capture_elapsed_s": 1.702259701,
+      "sensor_timestamp_ns": 515280454410000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.71171569824219
+    },
+    {
+      "frame_index": 52,
+      "capture_elapsed_s": 1.7355695,
+      "sensor_timestamp_ns": 515280487729000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.68140411376953
+    },
+    {
+      "frame_index": 53,
+      "capture_elapsed_s": 1.768658872,
+      "sensor_timestamp_ns": 515280521048000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.640262603759766
+    },
+    {
+      "frame_index": 54,
+      "capture_elapsed_s": 1.802076042,
+      "sensor_timestamp_ns": 515280554366000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.618465423583984
+    },
+    {
+      "frame_index": 55,
+      "capture_elapsed_s": 1.835937751,
+      "sensor_timestamp_ns": 515280587684000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.65408706665039
+    },
+    {
+      "frame_index": 56,
+      "capture_elapsed_s": 1.869173698,
+      "sensor_timestamp_ns": 515280621002000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.63878631591797
+    },
+    {
+      "frame_index": 57,
+      "capture_elapsed_s": 1.902199941,
+      "sensor_timestamp_ns": 515280654321000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.59599685668945
+    },
+    {
+      "frame_index": 58,
+      "capture_elapsed_s": 1.935522444,
+      "sensor_timestamp_ns": 515280687639000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.616947174072266
+    },
+    {
+      "frame_index": 59,
+      "capture_elapsed_s": 1.968765724,
+      "sensor_timestamp_ns": 515280720958000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.61563491821289
+    },
+    {
+      "frame_index": 60,
+      "capture_elapsed_s": 2.002341839,
+      "sensor_timestamp_ns": 515280754277000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.55722427368164
+    },
+    {
+      "frame_index": 61,
+      "capture_elapsed_s": 2.035924177,
+      "sensor_timestamp_ns": 515280787595000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.58205795288086
+    },
+    {
+      "frame_index": 62,
+      "capture_elapsed_s": 2.069162309,
+      "sensor_timestamp_ns": 515280820912000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.65501403808594
+    },
+    {
+      "frame_index": 63,
+      "capture_elapsed_s": 2.102276144,
+      "sensor_timestamp_ns": 515280854231000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.53647232055664
+    },
+    {
+      "frame_index": 64,
+      "capture_elapsed_s": 2.136217539,
+      "sensor_timestamp_ns": 515280887549000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.578670501708984
+    },
+    {
+      "frame_index": 65,
+      "capture_elapsed_s": 2.168873854,
+      "sensor_timestamp_ns": 515280920869000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.53366470336914
+    },
+    {
+      "frame_index": 66,
+      "capture_elapsed_s": 2.202082893,
+      "sensor_timestamp_ns": 515280954187000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.5857048034668
+    },
+    {
+      "frame_index": 67,
+      "capture_elapsed_s": 2.23590925,
+      "sensor_timestamp_ns": 515280987505000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.60853958129883
+    },
+    {
+      "frame_index": 68,
+      "capture_elapsed_s": 2.268965678,
+      "sensor_timestamp_ns": 515281020823000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.6256217956543
+    },
+    {
+      "frame_index": 69,
+      "capture_elapsed_s": 2.301969846,
+      "sensor_timestamp_ns": 515281054142000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.58936309814453
+    },
+    {
+      "frame_index": 70,
+      "capture_elapsed_s": 2.335202275,
+      "sensor_timestamp_ns": 515281087461000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.58452606201172
+    },
+    {
+      "frame_index": 71,
+      "capture_elapsed_s": 2.368761445,
+      "sensor_timestamp_ns": 515281120779000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.6450309753418
+    },
+    {
+      "frame_index": 72,
+      "capture_elapsed_s": 2.401981392,
+      "sensor_timestamp_ns": 515281154097000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.573829650878906
+    },
+    {
+      "frame_index": 73,
+      "capture_elapsed_s": 2.435876287,
+      "sensor_timestamp_ns": 515281187416000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.624916076660156
+    },
+    {
+      "frame_index": 74,
+      "capture_elapsed_s": 2.468963159,
+      "sensor_timestamp_ns": 515281220735000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.693538665771484
+    },
+    {
+      "frame_index": 75,
+      "capture_elapsed_s": 2.502531663,
+      "sensor_timestamp_ns": 515281254052000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.642765045166016
+    },
+    {
+      "frame_index": 76,
+      "capture_elapsed_s": 2.536546391,
+      "sensor_timestamp_ns": 515281287372000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.61322784423828
+    },
+    {
+      "frame_index": 77,
+      "capture_elapsed_s": 2.571874329,
+      "sensor_timestamp_ns": 515281320690000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.6029052734375
+    },
+    {
+      "frame_index": 78,
+      "capture_elapsed_s": 2.605297055,
+      "sensor_timestamp_ns": 515281354008000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.58393859863281
+    },
+    {
+      "frame_index": 79,
+      "capture_elapsed_s": 2.639263098,
+      "sensor_timestamp_ns": 515281387326000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.54566192626953
+    },
+    {
+      "frame_index": 80,
+      "capture_elapsed_s": 2.672275525,
+      "sensor_timestamp_ns": 515281420646000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.55824279785156
+    },
+    {
+      "frame_index": 81,
+      "capture_elapsed_s": 2.705168415,
+      "sensor_timestamp_ns": 515281453965000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.61454391479492
+    },
+    {
+      "frame_index": 82,
+      "capture_elapsed_s": 2.737214783,
+      "sensor_timestamp_ns": 515281487282000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.6474723815918
+    },
+    {
+      "frame_index": 83,
+      "capture_elapsed_s": 2.768427406,
+      "sensor_timestamp_ns": 515281520600000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.56938171386719
+    },
+    {
+      "frame_index": 84,
+      "capture_elapsed_s": 2.801408092,
+      "sensor_timestamp_ns": 515281553919000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.564876556396484
+    },
+    {
+      "frame_index": 85,
+      "capture_elapsed_s": 2.835392987,
+      "sensor_timestamp_ns": 515281587238000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.5510139465332
+    },
+    {
+      "frame_index": 86,
+      "capture_elapsed_s": 2.868574434,
+      "sensor_timestamp_ns": 515281620555000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.56462478637695
+    },
+    {
+      "frame_index": 87,
+      "capture_elapsed_s": 2.902245549,
+      "sensor_timestamp_ns": 515281653874000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.57616424560547
+    },
+    {
+      "frame_index": 88,
+      "capture_elapsed_s": 2.934720752,
+      "sensor_timestamp_ns": 515281687192000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.570735931396484
+    },
+    {
+      "frame_index": 89,
+      "capture_elapsed_s": 2.968115885,
+      "sensor_timestamp_ns": 515281720511000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.583839416503906
+    },
+    {
+      "frame_index": 90,
+      "capture_elapsed_s": 3.001536315,
+      "sensor_timestamp_ns": 515281753829000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.52851867675781
+    },
+    {
+      "frame_index": 91,
+      "capture_elapsed_s": 3.035187393,
+      "sensor_timestamp_ns": 515281787148000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.511680603027344
+    },
+    {
+      "frame_index": 92,
+      "capture_elapsed_s": 3.068825842,
+      "sensor_timestamp_ns": 515281820466000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.47837448120117
+    },
+    {
+      "frame_index": 93,
+      "capture_elapsed_s": 3.101455934,
+      "sensor_timestamp_ns": 515281853784000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.458641052246094
+    },
+    {
+      "frame_index": 94,
+      "capture_elapsed_s": 3.134724622,
+      "sensor_timestamp_ns": 515281887103000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.50301742553711
+    },
+    {
+      "frame_index": 95,
+      "capture_elapsed_s": 3.16811057,
+      "sensor_timestamp_ns": 515281920421000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.48862838745117
+    },
+    {
+      "frame_index": 96,
+      "capture_elapsed_s": 3.201433369,
+      "sensor_timestamp_ns": 515281953740000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.50661087036133
+    },
+    {
+      "frame_index": 97,
+      "capture_elapsed_s": 3.235550894,
+      "sensor_timestamp_ns": 515281987057000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.524600982666016
+    },
+    {
+      "frame_index": 98,
+      "capture_elapsed_s": 3.268486321,
+      "sensor_timestamp_ns": 515282020376000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.52671813964844
+    },
+    {
+      "frame_index": 99,
+      "capture_elapsed_s": 3.301430897,
+      "sensor_timestamp_ns": 515282053690000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.549068450927734
+    },
+    {
+      "frame_index": 100,
+      "capture_elapsed_s": 3.334878252,
+      "sensor_timestamp_ns": 515282087014000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.540687561035156
+    },
+    {
+      "frame_index": 101,
+      "capture_elapsed_s": 3.368741276,
+      "sensor_timestamp_ns": 515282120328000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.4708137512207
+    },
+    {
+      "frame_index": 102,
+      "capture_elapsed_s": 3.402739412,
+      "sensor_timestamp_ns": 515282153652000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.52973175048828
+    },
+    {
+      "frame_index": 103,
+      "capture_elapsed_s": 3.435301411,
+      "sensor_timestamp_ns": 515282186970000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.5018196105957
+    },
+    {
+      "frame_index": 104,
+      "capture_elapsed_s": 3.468478969,
+      "sensor_timestamp_ns": 515282220289000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.51633834838867
+    },
+    {
+      "frame_index": 105,
+      "capture_elapsed_s": 3.501388433,
+      "sensor_timestamp_ns": 515282253607000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.48444366455078
+    },
+    {
+      "frame_index": 106,
+      "capture_elapsed_s": 3.534678121,
+      "sensor_timestamp_ns": 515282286925000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.51591491699219
+    },
+    {
+      "frame_index": 107,
+      "capture_elapsed_s": 3.569516797,
+      "sensor_timestamp_ns": 515282320240000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.48950958251953
+    },
+    {
+      "frame_index": 108,
+      "capture_elapsed_s": 3.601377405,
+      "sensor_timestamp_ns": 515282353562000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.5047607421875
+    },
+    {
+      "frame_index": 109,
+      "capture_elapsed_s": 3.63558693,
+      "sensor_timestamp_ns": 515282386880000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.55118942260742
+    },
+    {
+      "frame_index": 110,
+      "capture_elapsed_s": 3.669301028,
+      "sensor_timestamp_ns": 515282420198000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.54409408569336
+    },
+    {
+      "frame_index": 111,
+      "capture_elapsed_s": 3.701293136,
+      "sensor_timestamp_ns": 515282453517000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.523319244384766
+    },
+    {
+      "frame_index": 112,
+      "capture_elapsed_s": 3.73443673,
+      "sensor_timestamp_ns": 515282486830000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.53079605102539
+    },
+    {
+      "frame_index": 113,
+      "capture_elapsed_s": 3.768730201,
+      "sensor_timestamp_ns": 515282520152000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.42938232421875
+    },
+    {
+      "frame_index": 114,
+      "capture_elapsed_s": 3.80183511,
+      "sensor_timestamp_ns": 515282553473000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.44920349121094
+    },
+    {
+      "frame_index": 115,
+      "capture_elapsed_s": 3.83501615,
+      "sensor_timestamp_ns": 515282586790000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.51589584350586
+    },
+    {
+      "frame_index": 116,
+      "capture_elapsed_s": 3.868362893,
+      "sensor_timestamp_ns": 515282620110000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.48621368408203
+    },
+    {
+      "frame_index": 117,
+      "capture_elapsed_s": 3.901400302,
+      "sensor_timestamp_ns": 515282653428000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.46021270751953
+    },
+    {
+      "frame_index": 118,
+      "capture_elapsed_s": 3.934513601,
+      "sensor_timestamp_ns": 515282686746000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.43965530395508
+    },
+    {
+      "frame_index": 119,
+      "capture_elapsed_s": 3.967700455,
+      "sensor_timestamp_ns": 515282720065000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.42851638793945
+    },
+    {
+      "frame_index": 120,
+      "capture_elapsed_s": 4.001147958,
+      "sensor_timestamp_ns": 515282753383000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.360145568847656
+    },
+    {
+      "frame_index": 121,
+      "capture_elapsed_s": 4.034857537,
+      "sensor_timestamp_ns": 515282786701000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.367984771728516
+    },
+    {
+      "frame_index": 122,
+      "capture_elapsed_s": 4.068516727,
+      "sensor_timestamp_ns": 515282820021000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.3928337097168
+    },
+    {
+      "frame_index": 123,
+      "capture_elapsed_s": 4.101121578,
+      "sensor_timestamp_ns": 515282853339000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.40659713745117
+    },
+    {
+      "frame_index": 124,
+      "capture_elapsed_s": 4.134721471,
+      "sensor_timestamp_ns": 515282886656000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.3692626953125
+    },
+    {
+      "frame_index": 125,
+      "capture_elapsed_s": 4.167846881,
+      "sensor_timestamp_ns": 515282919976000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.390296936035156
+    },
+    {
+      "frame_index": 126,
+      "capture_elapsed_s": 4.201622682,
+      "sensor_timestamp_ns": 515282953293000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.37920379638672
+    },
+    {
+      "frame_index": 127,
+      "capture_elapsed_s": 4.235208705,
+      "sensor_timestamp_ns": 515282986612000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.394073486328125
+    },
+    {
+      "frame_index": 128,
+      "capture_elapsed_s": 4.268338059,
+      "sensor_timestamp_ns": 515283019930000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.41123580932617
+    },
+    {
+      "frame_index": 129,
+      "capture_elapsed_s": 4.301288468,
+      "sensor_timestamp_ns": 515283053249000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.381431579589844
+    },
+    {
+      "frame_index": 130,
+      "capture_elapsed_s": 4.334401581,
+      "sensor_timestamp_ns": 515283086568000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.32878875732422
+    },
+    {
+      "frame_index": 131,
+      "capture_elapsed_s": 4.367496731,
+      "sensor_timestamp_ns": 515283119886000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.36294937133789
+    },
+    {
+      "frame_index": 132,
+      "capture_elapsed_s": 4.400826493,
+      "sensor_timestamp_ns": 515283153204000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.30316162109375
+    },
+    {
+      "frame_index": 133,
+      "capture_elapsed_s": 4.434876647,
+      "sensor_timestamp_ns": 515283186523000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.236793518066406
+    },
+    {
+      "frame_index": 134,
+      "capture_elapsed_s": 4.468121317,
+      "sensor_timestamp_ns": 515283219841000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.24729919433594
+    },
+    {
+      "frame_index": 135,
+      "capture_elapsed_s": 4.50137456,
+      "sensor_timestamp_ns": 515283253155000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.22856903076172
+    },
+    {
+      "frame_index": 136,
+      "capture_elapsed_s": 4.534235005,
+      "sensor_timestamp_ns": 515283286479000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.30075454711914
+    },
+    {
+      "frame_index": 137,
+      "capture_elapsed_s": 4.567476397,
+      "sensor_timestamp_ns": 515283319797000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.306434631347656
+    },
+    {
+      "frame_index": 138,
+      "capture_elapsed_s": 4.600853215,
+      "sensor_timestamp_ns": 515283353116000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.26051330566406
+    },
+    {
+      "frame_index": 139,
+      "capture_elapsed_s": 4.635100018,
+      "sensor_timestamp_ns": 515283386434000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.33495330810547
+    },
+    {
+      "frame_index": 140,
+      "capture_elapsed_s": 4.667774722,
+      "sensor_timestamp_ns": 515283419752000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.361297607421875
+    },
+    {
+      "frame_index": 141,
+      "capture_elapsed_s": 4.700940132,
+      "sensor_timestamp_ns": 515283453070000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.345314025878906
+    },
+    {
+      "frame_index": 142,
+      "capture_elapsed_s": 4.734017504,
+      "sensor_timestamp_ns": 515283486388000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.2308349609375
+    },
+    {
+      "frame_index": 143,
+      "capture_elapsed_s": 4.76728997,
+      "sensor_timestamp_ns": 515283519708000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.22617721557617
+    },
+    {
+      "frame_index": 144,
+      "capture_elapsed_s": 4.800790418,
+      "sensor_timestamp_ns": 515283553025000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.20336151123047
+    },
+    {
+      "frame_index": 145,
+      "capture_elapsed_s": 4.834691164,
+      "sensor_timestamp_ns": 515283586344000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.21230697631836
+    },
+    {
+      "frame_index": 146,
+      "capture_elapsed_s": 4.867728055,
+      "sensor_timestamp_ns": 515283619662000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.214630126953125
+    },
+    {
+      "frame_index": 147,
+      "capture_elapsed_s": 4.901078484,
+      "sensor_timestamp_ns": 515283652981000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.239662170410156
+    },
+    {
+      "frame_index": 148,
+      "capture_elapsed_s": 4.934204319,
+      "sensor_timestamp_ns": 515283686299000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.16987991333008
+    },
+    {
+      "frame_index": 149,
+      "capture_elapsed_s": 4.96734534,
+      "sensor_timestamp_ns": 515283719618000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.19976043701172
+    },
+    {
+      "frame_index": 150,
+      "capture_elapsed_s": 5.000718454,
+      "sensor_timestamp_ns": 515283752936000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.182865142822266
+    },
+    {
+      "frame_index": 151,
+      "capture_elapsed_s": 5.03444407,
+      "sensor_timestamp_ns": 515283786254000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.19203567504883
+    },
+    {
+      "frame_index": 152,
+      "capture_elapsed_s": 5.068225871,
+      "sensor_timestamp_ns": 515283819573000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.17980194091797
+    },
+    {
+      "frame_index": 153,
+      "capture_elapsed_s": 5.101257577,
+      "sensor_timestamp_ns": 515283852892000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.19845962524414
+    },
+    {
+      "frame_index": 154,
+      "capture_elapsed_s": 5.134234282,
+      "sensor_timestamp_ns": 515283886210000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.16145324707031
+    },
+    {
+      "frame_index": 155,
+      "capture_elapsed_s": 5.167561062,
+      "sensor_timestamp_ns": 515283919529000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.13224792480469
+    },
+    {
+      "frame_index": 156,
+      "capture_elapsed_s": 5.20079388,
+      "sensor_timestamp_ns": 515283952847000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.19631576538086
+    },
+    {
+      "frame_index": 157,
+      "capture_elapsed_s": 5.23480483,
+      "sensor_timestamp_ns": 515283986165000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.1550178527832
+    },
+    {
+      "frame_index": 158,
+      "capture_elapsed_s": 5.26800111,
+      "sensor_timestamp_ns": 515284019483000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.10103988647461
+    },
+    {
+      "frame_index": 159,
+      "capture_elapsed_s": 5.301292372,
+      "sensor_timestamp_ns": 515284052802000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.07893753051758
+    },
+    {
+      "frame_index": 160,
+      "capture_elapsed_s": 5.334403115,
+      "sensor_timestamp_ns": 515284086121000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.09395980834961
+    },
+    {
+      "frame_index": 161,
+      "capture_elapsed_s": 5.367368579,
+      "sensor_timestamp_ns": 515284119439000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.07326889038086
+    },
+    {
+      "frame_index": 162,
+      "capture_elapsed_s": 5.400687768,
+      "sensor_timestamp_ns": 515284152757000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.13039779663086
+    },
+    {
+      "frame_index": 163,
+      "capture_elapsed_s": 5.435470092,
+      "sensor_timestamp_ns": 515284186077000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.15174865722656
+    },
+    {
+      "frame_index": 164,
+      "capture_elapsed_s": 5.468099184,
+      "sensor_timestamp_ns": 515284219395000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.099395751953125
+    },
+    {
+      "frame_index": 165,
+      "capture_elapsed_s": 5.500539128,
+      "sensor_timestamp_ns": 515284252713000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.063228607177734
+    },
+    {
+      "frame_index": 166,
+      "capture_elapsed_s": 5.533810075,
+      "sensor_timestamp_ns": 515284286031000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.037498474121094
+    },
+    {
+      "frame_index": 167,
+      "capture_elapsed_s": 5.567232282,
+      "sensor_timestamp_ns": 515284319350000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.035980224609375
+    },
+    {
+      "frame_index": 168,
+      "capture_elapsed_s": 5.600538507,
+      "sensor_timestamp_ns": 515284352668000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.1115608215332
+    },
+    {
+      "frame_index": 169,
+      "capture_elapsed_s": 5.634311568,
+      "sensor_timestamp_ns": 515284385987000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.11964416503906
+    },
+    {
+      "frame_index": 170,
+      "capture_elapsed_s": 5.667619108,
+      "sensor_timestamp_ns": 515284419307000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.06070327758789
+    },
+    {
+      "frame_index": 171,
+      "capture_elapsed_s": 5.70066822,
+      "sensor_timestamp_ns": 515284452619000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.00911331176758
+    },
+    {
+      "frame_index": 172,
+      "capture_elapsed_s": 5.733672592,
+      "sensor_timestamp_ns": 515284485936000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.08506393432617
+    },
+    {
+      "frame_index": 173,
+      "capture_elapsed_s": 5.766926669,
+      "sensor_timestamp_ns": 515284519261000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.10641098022461
+    },
+    {
+      "frame_index": 174,
+      "capture_elapsed_s": 5.800815712,
+      "sensor_timestamp_ns": 515284552579000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.055389404296875
+    },
+    {
+      "frame_index": 175,
+      "capture_elapsed_s": 5.834235234,
+      "sensor_timestamp_ns": 515284585898000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.07590103149414
+    },
+    {
+      "frame_index": 176,
+      "capture_elapsed_s": 5.867441421,
+      "sensor_timestamp_ns": 515284619216000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.02392578125
+    },
+    {
+      "frame_index": 177,
+      "capture_elapsed_s": 5.90023044,
+      "sensor_timestamp_ns": 515284652533000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.05314636230469
+    },
+    {
+      "frame_index": 178,
+      "capture_elapsed_s": 5.933487647,
+      "sensor_timestamp_ns": 515284685847000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 59.0086555480957
+    },
+    {
+      "frame_index": 179,
+      "capture_elapsed_s": 5.966870353,
+      "sensor_timestamp_ns": 515284719170000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.94496536254883
+    },
+    {
+      "frame_index": 180,
+      "capture_elapsed_s": 6.000235597,
+      "sensor_timestamp_ns": 515284752491000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.89250564575195
+    },
+    {
+      "frame_index": 181,
+      "capture_elapsed_s": 6.034002658,
+      "sensor_timestamp_ns": 515284785808000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.882606506347656
+    },
+    {
+      "frame_index": 182,
+      "capture_elapsed_s": 6.067377198,
+      "sensor_timestamp_ns": 515284819126000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.921836853027344
+    },
+    {
+      "frame_index": 183,
+      "capture_elapsed_s": 6.100643423,
+      "sensor_timestamp_ns": 515284852444000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.91646194458008
+    },
+    {
+      "frame_index": 184,
+      "capture_elapsed_s": 6.133432387,
+      "sensor_timestamp_ns": 515284885763000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.94132995605469
+    },
+    {
+      "frame_index": 185,
+      "capture_elapsed_s": 6.166877927,
+      "sensor_timestamp_ns": 515284919081000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.955623626708984
+    },
+    {
+      "frame_index": 186,
+      "capture_elapsed_s": 6.200246449,
+      "sensor_timestamp_ns": 515284952399000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.95505142211914
+    },
+    {
+      "frame_index": 187,
+      "capture_elapsed_s": 6.235047755,
+      "sensor_timestamp_ns": 515284985717000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.90480422973633
+    },
+    {
+      "frame_index": 188,
+      "capture_elapsed_s": 6.267825292,
+      "sensor_timestamp_ns": 515285019037000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.87303924560547
+    },
+    {
+      "frame_index": 189,
+      "capture_elapsed_s": 6.300468255,
+      "sensor_timestamp_ns": 515285052356000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.84783172607422
+    },
+    {
+      "frame_index": 190,
+      "capture_elapsed_s": 6.333524164,
+      "sensor_timestamp_ns": 515285085674000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.811492919921875
+    },
+    {
+      "frame_index": 191,
+      "capture_elapsed_s": 6.366599814,
+      "sensor_timestamp_ns": 515285118992000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.77861404418945
+    },
+    {
+      "frame_index": 192,
+      "capture_elapsed_s": 6.399935447,
+      "sensor_timestamp_ns": 515285152312000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.80665969848633
+    },
+    {
+      "frame_index": 193,
+      "capture_elapsed_s": 6.43378436,
+      "sensor_timestamp_ns": 515285185629000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.79828643798828
+    },
+    {
+      "frame_index": 194,
+      "capture_elapsed_s": 6.467051696,
+      "sensor_timestamp_ns": 515285218947000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.817298889160156
+    },
+    {
+      "frame_index": 195,
+      "capture_elapsed_s": 6.500227642,
+      "sensor_timestamp_ns": 515285252266000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.87855529785156
+    },
+    {
+      "frame_index": 196,
+      "capture_elapsed_s": 6.533163995,
+      "sensor_timestamp_ns": 515285285584000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.76413345336914
+    },
+    {
+      "frame_index": 197,
+      "capture_elapsed_s": 6.566536925,
+      "sensor_timestamp_ns": 515285318903000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.74749755859375
+    },
+    {
+      "frame_index": 198,
+      "capture_elapsed_s": 6.600019132,
+      "sensor_timestamp_ns": 515285352221000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.70240020751953
+    },
+    {
+      "frame_index": 199,
+      "capture_elapsed_s": 6.634184454,
+      "sensor_timestamp_ns": 515285385539000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.69981384277344
+    },
+    {
+      "frame_index": 200,
+      "capture_elapsed_s": 6.667175066,
+      "sensor_timestamp_ns": 515285418859000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.70121383666992
+    },
+    {
+      "frame_index": 201,
+      "capture_elapsed_s": 6.700064697,
+      "sensor_timestamp_ns": 515285452177000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.68721008300781
+    },
+    {
+      "frame_index": 202,
+      "capture_elapsed_s": 6.733445144,
+      "sensor_timestamp_ns": 515285485495000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.69871139526367
+    },
+    {
+      "frame_index": 203,
+      "capture_elapsed_s": 6.766588628,
+      "sensor_timestamp_ns": 515285518814000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.62092971801758
+    },
+    {
+      "frame_index": 204,
+      "capture_elapsed_s": 6.800050761,
+      "sensor_timestamp_ns": 515285552132000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.66905975341797
+    },
+    {
+      "frame_index": 205,
+      "capture_elapsed_s": 6.833753988,
+      "sensor_timestamp_ns": 515285585450000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.63948059082031
+    },
+    {
+      "frame_index": 206,
+      "capture_elapsed_s": 6.86699025,
+      "sensor_timestamp_ns": 515285618768000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.63261413574219
+    },
+    {
+      "frame_index": 207,
+      "capture_elapsed_s": 6.900183308,
+      "sensor_timestamp_ns": 515285652088000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.65196228027344
+    },
+    {
+      "frame_index": 208,
+      "capture_elapsed_s": 6.933043698,
+      "sensor_timestamp_ns": 515285685405000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.67698669433594
+    },
+    {
+      "frame_index": 209,
+      "capture_elapsed_s": 6.966230033,
+      "sensor_timestamp_ns": 515285718725000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.652217864990234
+    },
+    {
+      "frame_index": 210,
+      "capture_elapsed_s": 6.999568166,
+      "sensor_timestamp_ns": 515285752042000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.61307907104492
+    },
+    {
+      "frame_index": 211,
+      "capture_elapsed_s": 7.033800914,
+      "sensor_timestamp_ns": 515285785359000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.51963806152344
+    },
+    {
+      "frame_index": 212,
+      "capture_elapsed_s": 7.066779434,
+      "sensor_timestamp_ns": 515285818679000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.48872756958008
+    },
+    {
+      "frame_index": 213,
+      "capture_elapsed_s": 7.099625194,
+      "sensor_timestamp_ns": 515285851998000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.47471237182617
+    },
+    {
+      "frame_index": 214,
+      "capture_elapsed_s": 7.133058568,
+      "sensor_timestamp_ns": 515285885316000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.482627868652344
+    },
+    {
+      "frame_index": 215,
+      "capture_elapsed_s": 7.166419941,
+      "sensor_timestamp_ns": 515285918634000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.48709487915039
+    },
+    {
+      "frame_index": 216,
+      "capture_elapsed_s": 7.19966961,
+      "sensor_timestamp_ns": 515285951953000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.48073196411133
+    },
+    {
+      "frame_index": 217,
+      "capture_elapsed_s": 7.23366495,
+      "sensor_timestamp_ns": 515285985296000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.54046630859375
+    },
+    {
+      "frame_index": 218,
+      "capture_elapsed_s": 7.266692414,
+      "sensor_timestamp_ns": 515286018589000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.63859176635742
+    },
+    {
+      "frame_index": 219,
+      "capture_elapsed_s": 7.299677842,
+      "sensor_timestamp_ns": 515286051908000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.62120819091797
+    },
+    {
+      "frame_index": 220,
+      "capture_elapsed_s": 7.333100178,
+      "sensor_timestamp_ns": 515286085228000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.637332916259766
+    },
+    {
+      "frame_index": 221,
+      "capture_elapsed_s": 7.366205069,
+      "sensor_timestamp_ns": 515286118546000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.62730407714844
+    },
+    {
+      "frame_index": 222,
+      "capture_elapsed_s": 7.399599702,
+      "sensor_timestamp_ns": 515286151864000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.665672302246094
+    },
+    {
+      "frame_index": 223,
+      "capture_elapsed_s": 7.433406837,
+      "sensor_timestamp_ns": 515286185182000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.63862609863281
+    },
+    {
+      "frame_index": 224,
+      "capture_elapsed_s": 7.466982526,
+      "sensor_timestamp_ns": 515286218501000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.62710189819336
+    },
+    {
+      "frame_index": 225,
+      "capture_elapsed_s": 7.499764601,
+      "sensor_timestamp_ns": 515286251819000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.67298889160156
+    },
+    {
+      "frame_index": 226,
+      "capture_elapsed_s": 7.532841677,
+      "sensor_timestamp_ns": 515286285138000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.57299041748047
+    },
+    {
+      "frame_index": 227,
+      "capture_elapsed_s": 7.566040438,
+      "sensor_timestamp_ns": 515286318454000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.51600646972656
+    },
+    {
+      "frame_index": 228,
+      "capture_elapsed_s": 7.599331941,
+      "sensor_timestamp_ns": 515286351774000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.50519943237305
+    },
+    {
+      "frame_index": 229,
+      "capture_elapsed_s": 7.633103446,
+      "sensor_timestamp_ns": 515286385091000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.564231872558594
+    },
+    {
+      "frame_index": 230,
+      "capture_elapsed_s": 7.666391579,
+      "sensor_timestamp_ns": 515286418410000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.59762954711914
+    },
+    {
+      "frame_index": 231,
+      "capture_elapsed_s": 7.699326061,
+      "sensor_timestamp_ns": 515286451728000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.60133361816406
+    },
+    {
+      "frame_index": 232,
+      "capture_elapsed_s": 7.733285549,
+      "sensor_timestamp_ns": 515286485047000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.627437591552734
+    },
+    {
+      "frame_index": 233,
+      "capture_elapsed_s": 7.771343462,
+      "sensor_timestamp_ns": 515286518367000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.684913635253906
+    },
+    {
+      "frame_index": 234,
+      "capture_elapsed_s": 7.805369542,
+      "sensor_timestamp_ns": 515286551686000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.559444427490234
+    },
+    {
+      "frame_index": 235,
+      "capture_elapsed_s": 7.836252423,
+      "sensor_timestamp_ns": 515286585005000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.47114944458008
+    },
+    {
+      "frame_index": 236,
+      "capture_elapsed_s": 7.866464838,
+      "sensor_timestamp_ns": 515286618321000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.49142837524414
+    },
+    {
+      "frame_index": 237,
+      "capture_elapsed_s": 7.89941732,
+      "sensor_timestamp_ns": 515286651641000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.48854064941406
+    },
+    {
+      "frame_index": 238,
+      "capture_elapsed_s": 7.933477808,
+      "sensor_timestamp_ns": 515286684959000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.44835662841797
+    },
+    {
+      "frame_index": 239,
+      "capture_elapsed_s": 7.966310087,
+      "sensor_timestamp_ns": 515286718278000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.52267837524414
+    },
+    {
+      "frame_index": 240,
+      "capture_elapsed_s": 7.999263903,
+      "sensor_timestamp_ns": 515286751591000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.51189422607422
+    },
+    {
+      "frame_index": 241,
+      "capture_elapsed_s": 8.033123501,
+      "sensor_timestamp_ns": 515286784915000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.463356018066406
+    },
+    {
+      "frame_index": 242,
+      "capture_elapsed_s": 8.066456152,
+      "sensor_timestamp_ns": 515286818234000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.51974868774414
+    },
+    {
+      "frame_index": 243,
+      "capture_elapsed_s": 8.099357746,
+      "sensor_timestamp_ns": 515286851552000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.43980026245117
+    },
+    {
+      "frame_index": 244,
+      "capture_elapsed_s": 8.132549396,
+      "sensor_timestamp_ns": 515286884870000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.40428161621094
+    },
+    {
+      "frame_index": 245,
+      "capture_elapsed_s": 8.165900696,
+      "sensor_timestamp_ns": 515286918189000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.44103240966797
+    },
+    {
+      "frame_index": 246,
+      "capture_elapsed_s": 8.19938257,
+      "sensor_timestamp_ns": 515286951507000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.50663757324219
+    },
+    {
+      "frame_index": 247,
+      "capture_elapsed_s": 8.232892925,
+      "sensor_timestamp_ns": 515286984826000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.45827102661133
+    },
+    {
+      "frame_index": 248,
+      "capture_elapsed_s": 8.266228854,
+      "sensor_timestamp_ns": 515287018143000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.47732925415039
+    },
+    {
+      "frame_index": 249,
+      "capture_elapsed_s": 8.298951465,
+      "sensor_timestamp_ns": 515287051462000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.527320861816406
+    },
+    {
+      "frame_index": 250,
+      "capture_elapsed_s": 8.333043953,
+      "sensor_timestamp_ns": 515287084781000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.462646484375
+    },
+    {
+      "frame_index": 251,
+      "capture_elapsed_s": 8.365691361,
+      "sensor_timestamp_ns": 515287118099000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.37308883666992
+    },
+    {
+      "frame_index": 252,
+      "capture_elapsed_s": 8.400872483,
+      "sensor_timestamp_ns": 515287151418000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.352718353271484
+    },
+    {
+      "frame_index": 253,
+      "capture_elapsed_s": 8.433161167,
+      "sensor_timestamp_ns": 515287184736000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.23273468017578
+    },
+    {
+      "frame_index": 254,
+      "capture_elapsed_s": 8.466164927,
+      "sensor_timestamp_ns": 515287218055000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.211891174316406
+    },
+    {
+      "frame_index": 255,
+      "capture_elapsed_s": 8.498954039,
+      "sensor_timestamp_ns": 515287251373000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.22770309448242
+    },
+    {
+      "frame_index": 256,
+      "capture_elapsed_s": 8.532343672,
+      "sensor_timestamp_ns": 515287284692000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.20201873779297
+    },
+    {
+      "frame_index": 257,
+      "capture_elapsed_s": 8.565492026,
+      "sensor_timestamp_ns": 515287318010000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.275455474853516
+    },
+    {
+      "frame_index": 258,
+      "capture_elapsed_s": 8.598914974,
+      "sensor_timestamp_ns": 515287351329000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.291954040527344
+    },
+    {
+      "frame_index": 259,
+      "capture_elapsed_s": 8.632719035,
+      "sensor_timestamp_ns": 515287384647000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.24568557739258
+    },
+    {
+      "frame_index": 260,
+      "capture_elapsed_s": 8.666243427,
+      "sensor_timestamp_ns": 515287417966000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.20717239379883
+    },
+    {
+      "frame_index": 261,
+      "capture_elapsed_s": 8.699072391,
+      "sensor_timestamp_ns": 515287451284000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.120269775390625
+    },
+    {
+      "frame_index": 262,
+      "capture_elapsed_s": 8.732348523,
+      "sensor_timestamp_ns": 515287484602000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.17412567138672
+    },
+    {
+      "frame_index": 263,
+      "capture_elapsed_s": 8.76575399,
+      "sensor_timestamp_ns": 515287517921000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.10466766357422
+    },
+    {
+      "frame_index": 264,
+      "capture_elapsed_s": 8.79964544,
+      "sensor_timestamp_ns": 515287551239000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.15101623535156
+    },
+    {
+      "frame_index": 265,
+      "capture_elapsed_s": 8.833245777,
+      "sensor_timestamp_ns": 515287584557000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.04277038574219
+    },
+    {
+      "frame_index": 266,
+      "capture_elapsed_s": 8.866305816,
+      "sensor_timestamp_ns": 515287617871000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.061073303222656
+    },
+    {
+      "frame_index": 267,
+      "capture_elapsed_s": 8.89921441,
+      "sensor_timestamp_ns": 515287651195000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.084381103515625
+    },
+    {
+      "frame_index": 268,
+      "capture_elapsed_s": 8.932421542,
+      "sensor_timestamp_ns": 515287684512000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.050601959228516
+    },
+    {
+      "frame_index": 269,
+      "capture_elapsed_s": 8.965606396,
+      "sensor_timestamp_ns": 515287717831000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.08501052856445
+    },
+    {
+      "frame_index": 270,
+      "capture_elapsed_s": 8.999098474,
+      "sensor_timestamp_ns": 515287751150000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.03431701660156
+    },
+    {
+      "frame_index": 271,
+      "capture_elapsed_s": 9.032747737,
+      "sensor_timestamp_ns": 515287784468000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.093441009521484
+    },
+    {
+      "frame_index": 272,
+      "capture_elapsed_s": 9.06626026,
+      "sensor_timestamp_ns": 515287817781000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.124263763427734
+    },
+    {
+      "frame_index": 273,
+      "capture_elapsed_s": 9.098903297,
+      "sensor_timestamp_ns": 515287851101000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.07471466064453
+    },
+    {
+      "frame_index": 274,
+      "capture_elapsed_s": 9.132201725,
+      "sensor_timestamp_ns": 515287884423000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.00954055786133
+    },
+    {
+      "frame_index": 275,
+      "capture_elapsed_s": 9.165495691,
+      "sensor_timestamp_ns": 515287917742000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.07025909423828
+    },
+    {
+      "frame_index": 276,
+      "capture_elapsed_s": 9.199312974,
+      "sensor_timestamp_ns": 515287951060000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.0411491394043
+    },
+    {
+      "frame_index": 277,
+      "capture_elapsed_s": 9.232914756,
+      "sensor_timestamp_ns": 515287984378000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.06979751586914
+    },
+    {
+      "frame_index": 278,
+      "capture_elapsed_s": 9.268820456,
+      "sensor_timestamp_ns": 515288017696000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.12398147583008
+    },
+    {
+      "frame_index": 279,
+      "capture_elapsed_s": 9.298901037,
+      "sensor_timestamp_ns": 515288051015000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.154720306396484
+    },
+    {
+      "frame_index": 280,
+      "capture_elapsed_s": 9.332414467,
+      "sensor_timestamp_ns": 515288084334000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.112247467041016
+    },
+    {
+      "frame_index": 281,
+      "capture_elapsed_s": 9.365499061,
+      "sensor_timestamp_ns": 515288117652000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.04981994628906
+    },
+    {
+      "frame_index": 282,
+      "capture_elapsed_s": 9.398910916,
+      "sensor_timestamp_ns": 515288150971000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.01227569580078
+    },
+    {
+      "frame_index": 283,
+      "capture_elapsed_s": 9.432697829,
+      "sensor_timestamp_ns": 515288184289000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.0709342956543
+    },
+    {
+      "frame_index": 284,
+      "capture_elapsed_s": 9.466009443,
+      "sensor_timestamp_ns": 515288217608000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.0843505859375
+    },
+    {
+      "frame_index": 285,
+      "capture_elapsed_s": 9.49865435,
+      "sensor_timestamp_ns": 515288250927000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.066070556640625
+    },
+    {
+      "frame_index": 286,
+      "capture_elapsed_s": 9.532064909,
+      "sensor_timestamp_ns": 515288284244000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.028968811035156
+    },
+    {
+      "frame_index": 287,
+      "capture_elapsed_s": 9.565315152,
+      "sensor_timestamp_ns": 515288317562000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.9718132019043
+    },
+    {
+      "frame_index": 288,
+      "capture_elapsed_s": 9.599293732,
+      "sensor_timestamp_ns": 515288350882000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.01514434814453
+    },
+    {
+      "frame_index": 289,
+      "capture_elapsed_s": 9.632655587,
+      "sensor_timestamp_ns": 515288384200000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.046817779541016
+    },
+    {
+      "frame_index": 290,
+      "capture_elapsed_s": 9.665757108,
+      "sensor_timestamp_ns": 515288417518000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.99563217163086
+    },
+    {
+      "frame_index": 291,
+      "capture_elapsed_s": 9.698922814,
+      "sensor_timestamp_ns": 515288450836000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.02091979980469
+    },
+    {
+      "frame_index": 292,
+      "capture_elapsed_s": 9.731874389,
+      "sensor_timestamp_ns": 515288484156000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.96510314941406
+    },
+    {
+      "frame_index": 293,
+      "capture_elapsed_s": 9.765642931,
+      "sensor_timestamp_ns": 515288517473000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.92465591430664
+    },
+    {
+      "frame_index": 294,
+      "capture_elapsed_s": 9.798749489,
+      "sensor_timestamp_ns": 515288550792000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.901397705078125
+    },
+    {
+      "frame_index": 295,
+      "capture_elapsed_s": 9.832478105,
+      "sensor_timestamp_ns": 515288584112000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.94816207885742
+    },
+    {
+      "frame_index": 296,
+      "capture_elapsed_s": 9.865870849,
+      "sensor_timestamp_ns": 515288617430000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.94179153442383
+    },
+    {
+      "frame_index": 297,
+      "capture_elapsed_s": 9.898559423,
+      "sensor_timestamp_ns": 515288650749000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.980712890625
+    },
+    {
+      "frame_index": 298,
+      "capture_elapsed_s": 9.931801703,
+      "sensor_timestamp_ns": 515288684067000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.99978256225586
+    },
+    {
+      "frame_index": 299,
+      "capture_elapsed_s": 9.965090465,
+      "sensor_timestamp_ns": 515288717386000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.9940299987793
+    },
+    {
+      "frame_index": 300,
+      "capture_elapsed_s": 9.999366065,
+      "sensor_timestamp_ns": 515288750704000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.94150924682617
+    },
+    {
+      "frame_index": 301,
+      "capture_elapsed_s": 10.032480493,
+      "sensor_timestamp_ns": 515288784017000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.98404312133789
+    },
+    {
+      "frame_index": 302,
+      "capture_elapsed_s": 10.06557731,
+      "sensor_timestamp_ns": 515288817339000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 58.01360321044922
+    },
+    {
+      "frame_index": 303,
+      "capture_elapsed_s": 10.098624941,
+      "sensor_timestamp_ns": 515288850659000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.960323333740234
+    },
+    {
+      "frame_index": 304,
+      "capture_elapsed_s": 10.131755036,
+      "sensor_timestamp_ns": 515288883976000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.9847526550293
+    },
+    {
+      "frame_index": 305,
+      "capture_elapsed_s": 10.164774982,
+      "sensor_timestamp_ns": 515288917294000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.9284782409668
+    },
+    {
+      "frame_index": 306,
+      "capture_elapsed_s": 10.198088337,
+      "sensor_timestamp_ns": 515288950614000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.83718490600586
+    },
+    {
+      "frame_index": 307,
+      "capture_elapsed_s": 10.231986027,
+      "sensor_timestamp_ns": 515288983932000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.9069938659668
+    },
+    {
+      "frame_index": 308,
+      "capture_elapsed_s": 10.265211826,
+      "sensor_timestamp_ns": 515289017248000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.92390441894531
+    },
+    {
+      "frame_index": 309,
+      "capture_elapsed_s": 10.298101234,
+      "sensor_timestamp_ns": 515289050565000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.9506721496582
+    },
+    {
+      "frame_index": 310,
+      "capture_elapsed_s": 10.331759887,
+      "sensor_timestamp_ns": 515289083888000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.944496154785156
+    },
+    {
+      "frame_index": 311,
+      "capture_elapsed_s": 10.364772926,
+      "sensor_timestamp_ns": 515289117205000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.8547477722168
+    },
+    {
+      "frame_index": 312,
+      "capture_elapsed_s": 10.398210763,
+      "sensor_timestamp_ns": 515289150524000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.84629821777344
+    },
+    {
+      "frame_index": 313,
+      "capture_elapsed_s": 10.432133787,
+      "sensor_timestamp_ns": 515289183843000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.80341339111328
+    },
+    {
+      "frame_index": 314,
+      "capture_elapsed_s": 10.465893403,
+      "sensor_timestamp_ns": 515289217161000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.81705093383789
+    },
+    {
+      "frame_index": 315,
+      "capture_elapsed_s": 10.499194906,
+      "sensor_timestamp_ns": 515289250480000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.86309051513672
+    },
+    {
+      "frame_index": 316,
+      "capture_elapsed_s": 10.531534756,
+      "sensor_timestamp_ns": 515289283797000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.92436218261719
+    },
+    {
+      "frame_index": 317,
+      "capture_elapsed_s": 10.564791536,
+      "sensor_timestamp_ns": 515289317116000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.87067413330078
+    },
+    {
+      "frame_index": 318,
+      "capture_elapsed_s": 10.598221058,
+      "sensor_timestamp_ns": 515289350435000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.89662551879883
+    },
+    {
+      "frame_index": 319,
+      "capture_elapsed_s": 10.632184935,
+      "sensor_timestamp_ns": 515289383753000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.79006576538086
+    },
+    {
+      "frame_index": 320,
+      "capture_elapsed_s": 10.665453085,
+      "sensor_timestamp_ns": 515289417071000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.74401092529297
+    },
+    {
+      "frame_index": 321,
+      "capture_elapsed_s": 10.698356624,
+      "sensor_timestamp_ns": 515289450389000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.76594161987305
+    },
+    {
+      "frame_index": 322,
+      "capture_elapsed_s": 10.732001665,
+      "sensor_timestamp_ns": 515289483709000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.775489807128906
+    },
+    {
+      "frame_index": 323,
+      "capture_elapsed_s": 10.764980241,
+      "sensor_timestamp_ns": 515289517026000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.72980880737305
+    },
+    {
+      "frame_index": 324,
+      "capture_elapsed_s": 10.798494911,
+      "sensor_timestamp_ns": 515289550340000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.69248580932617
+    },
+    {
+      "frame_index": 325,
+      "capture_elapsed_s": 10.832490639,
+      "sensor_timestamp_ns": 515289583664000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.715370178222656
+    },
+    {
+      "frame_index": 326,
+      "capture_elapsed_s": 10.86591068,
+      "sensor_timestamp_ns": 515289616981000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.786903381347656
+    },
+    {
+      "frame_index": 327,
+      "capture_elapsed_s": 10.898699347,
+      "sensor_timestamp_ns": 515289650301000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.86187744140625
+    },
+    {
+      "frame_index": 328,
+      "capture_elapsed_s": 10.931613366,
+      "sensor_timestamp_ns": 515289683618000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.868282318115234
+    },
+    {
+      "frame_index": 329,
+      "capture_elapsed_s": 10.964627424,
+      "sensor_timestamp_ns": 515289716937000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.87605667114258
+    },
+    {
+      "frame_index": 330,
+      "capture_elapsed_s": 10.998141501,
+      "sensor_timestamp_ns": 515289750251000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.79194259643555
+    },
+    {
+      "frame_index": 331,
+      "capture_elapsed_s": 11.031992822,
+      "sensor_timestamp_ns": 515289783574000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.810638427734375
+    },
+    {
+      "frame_index": 332,
+      "capture_elapsed_s": 11.065247491,
+      "sensor_timestamp_ns": 515289816892000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.77564239501953
+    },
+    {
+      "frame_index": 333,
+      "capture_elapsed_s": 11.098260789,
+      "sensor_timestamp_ns": 515289850210000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.737667083740234
+    },
+    {
+      "frame_index": 334,
+      "capture_elapsed_s": 11.131820608,
+      "sensor_timestamp_ns": 515289883529000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.7647705078125
+    },
+    {
+      "frame_index": 335,
+      "capture_elapsed_s": 11.164781239,
+      "sensor_timestamp_ns": 515289916848000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.84239196777344
+    },
+    {
+      "frame_index": 336,
+      "capture_elapsed_s": 11.198035019,
+      "sensor_timestamp_ns": 515289950166000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.7781867980957
+    },
+    {
+      "frame_index": 337,
+      "capture_elapsed_s": 11.231915932,
+      "sensor_timestamp_ns": 515289983484000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.77070999145508
+    },
+    {
+      "frame_index": 338,
+      "capture_elapsed_s": 11.265522825,
+      "sensor_timestamp_ns": 515290016803000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.83169174194336
+    },
+    {
+      "frame_index": 339,
+      "capture_elapsed_s": 11.298012713,
+      "sensor_timestamp_ns": 515290050122000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.81523132324219
+    },
+    {
+      "frame_index": 340,
+      "capture_elapsed_s": 11.331203549,
+      "sensor_timestamp_ns": 515290083440000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.77901840209961
+    },
+    {
+      "frame_index": 341,
+      "capture_elapsed_s": 11.364445366,
+      "sensor_timestamp_ns": 515290116758000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.8216667175293
+    },
+    {
+      "frame_index": 342,
+      "capture_elapsed_s": 11.397747795,
+      "sensor_timestamp_ns": 515290150072000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.80824661254883
+    },
+    {
+      "frame_index": 343,
+      "capture_elapsed_s": 11.43208121,
+      "sensor_timestamp_ns": 515290183395000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.78757095336914
+    },
+    {
+      "frame_index": 344,
+      "capture_elapsed_s": 11.465042933,
+      "sensor_timestamp_ns": 515290216714000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.80908203125
+    },
+    {
+      "frame_index": 345,
+      "capture_elapsed_s": 11.498121102,
+      "sensor_timestamp_ns": 515290250032000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.803367614746094
+    },
+    {
+      "frame_index": 346,
+      "capture_elapsed_s": 11.531313901,
+      "sensor_timestamp_ns": 515290283351000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.77702713012695
+    },
+    {
+      "frame_index": 347,
+      "capture_elapsed_s": 11.564678515,
+      "sensor_timestamp_ns": 515290316668000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.80742645263672
+    },
+    {
+      "frame_index": 348,
+      "capture_elapsed_s": 11.597913555,
+      "sensor_timestamp_ns": 515290349988000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.820709228515625
+    },
+    {
+      "frame_index": 349,
+      "capture_elapsed_s": 11.632380544,
+      "sensor_timestamp_ns": 515290383305000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.8497428894043
+    },
+    {
+      "frame_index": 350,
+      "capture_elapsed_s": 11.665047026,
+      "sensor_timestamp_ns": 515290416625000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.89228057861328
+    },
+    {
+      "frame_index": 351,
+      "capture_elapsed_s": 11.698019564,
+      "sensor_timestamp_ns": 515290449943000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.824100494384766
+    },
+    {
+      "frame_index": 352,
+      "capture_elapsed_s": 11.731331271,
+      "sensor_timestamp_ns": 515290483261000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.819461822509766
+    },
+    {
+      "frame_index": 353,
+      "capture_elapsed_s": 11.764377772,
+      "sensor_timestamp_ns": 515290516580000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.85213088989258
+    },
+    {
+      "frame_index": 354,
+      "capture_elapsed_s": 11.797836591,
+      "sensor_timestamp_ns": 515290549898000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.76353454589844
+    },
+    {
+      "frame_index": 355,
+      "capture_elapsed_s": 11.831679022,
+      "sensor_timestamp_ns": 515290583217000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.78172302246094
+    },
+    {
+      "frame_index": 356,
+      "capture_elapsed_s": 11.865159174,
+      "sensor_timestamp_ns": 515290616535000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.80406951904297
+    },
+    {
+      "frame_index": 357,
+      "capture_elapsed_s": 11.897741062,
+      "sensor_timestamp_ns": 515290649853000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.81534957885742
+    },
+    {
+      "frame_index": 358,
+      "capture_elapsed_s": 11.931092547,
+      "sensor_timestamp_ns": 515290683172000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.82172775268555
+    },
+    {
+      "frame_index": 359,
+      "capture_elapsed_s": 11.964361253,
+      "sensor_timestamp_ns": 515290716485000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.82268524169922
+    },
+    {
+      "frame_index": 360,
+      "capture_elapsed_s": 11.998187166,
+      "sensor_timestamp_ns": 515290749811000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.78150177001953
+    },
+    {
+      "frame_index": 361,
+      "capture_elapsed_s": 12.031839504,
+      "sensor_timestamp_ns": 515290783128000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.817039489746094
+    },
+    {
+      "frame_index": 362,
+      "capture_elapsed_s": 12.064894413,
+      "sensor_timestamp_ns": 515290816446000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.81864929199219
+    },
+    {
+      "frame_index": 363,
+      "capture_elapsed_s": 12.09778684,
+      "sensor_timestamp_ns": 515290849766000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.74806213378906
+    },
+    {
+      "frame_index": 364,
+      "capture_elapsed_s": 12.13119551,
+      "sensor_timestamp_ns": 515290883082000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.73319625854492
+    },
+    {
+      "frame_index": 365,
+      "capture_elapsed_s": 12.164432309,
+      "sensor_timestamp_ns": 515290916400000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.744422912597656
+    },
+    {
+      "frame_index": 366,
+      "capture_elapsed_s": 12.197773756,
+      "sensor_timestamp_ns": 515290949719000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.760189056396484
+    },
+    {
+      "frame_index": 367,
+      "capture_elapsed_s": 12.231916689,
+      "sensor_timestamp_ns": 515290983038000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.74424362182617
+    },
+    {
+      "frame_index": 368,
+      "capture_elapsed_s": 12.264980116,
+      "sensor_timestamp_ns": 515291016356000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.74867630004883
+    },
+    {
+      "frame_index": 369,
+      "capture_elapsed_s": 12.297813728,
+      "sensor_timestamp_ns": 515291049675000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.699012756347656
+    },
+    {
+      "frame_index": 370,
+      "capture_elapsed_s": 12.331115861,
+      "sensor_timestamp_ns": 515291082996000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.73684310913086
+    },
+    {
+      "frame_index": 371,
+      "capture_elapsed_s": 12.364909014,
+      "sensor_timestamp_ns": 515291116313000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.70090866088867
+    },
+    {
+      "frame_index": 372,
+      "capture_elapsed_s": 12.397957053,
+      "sensor_timestamp_ns": 515291149632000,
+      "exposure_time_us": 7993,
+      "analogue_gain": 1.1228070259094238,
+      "lens_position": 2.3276000022888184,
+      "frame_duration_us": 33327,
+      "colour_gains": [
+        2.043731689453125,
+        1.8347946405410767
+      ],
+      "lux": 57.65620422363281
+    }
+  ]
+}

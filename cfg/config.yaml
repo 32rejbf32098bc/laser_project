@@ -17,7 +17,9 @@ laser:
   hsv_red2_upper: [179, 255, 255]
 
 processing:
-  roi: [2200, 1000, 2900, 2100] # [0,0,4608,2592]
+  roi: [2300, 100, 2700, 2400]
+  #roi: [0,0,4608,2592]
+  #roi: [0, 0, 1280, 720]
   blur_ksize: 3
   morph_ksize: 3
   morph_iters: 1

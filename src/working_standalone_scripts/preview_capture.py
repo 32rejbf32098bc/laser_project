@@ -24,16 +24,25 @@ LENS_MAX = 10.0
 GAIN_STEP = 0.1
 GAIN_MIN = 1.0
 GAIN_MAX = 16.0
+
+# ROI in full-resolution coordinates
+ROI = (2200, 1000, 2900, 2100)  # x0, y0, x1, y1
+
+# Camera / preview sizes
+FULL_W, FULL_H = 4608, 2592
+PREVIEW_W, PREVIEW_H = 1280, 720
 # -----------------------------
+
 
 def clamp(x, lo, hi):
     return lo if x < lo else hi if x > hi else x
+
 
 picam2 = Picamera2()
 
 # Explicit format helps keep colour conversions predictable
 preview_cfg = picam2.create_preview_configuration(
-    main={"size": (4608, 2592), "format": "RGB888"}
+    main={"size": (FULL_W, FULL_H), "format": "RGB888"}
 )
 picam2.configure(preview_cfg)
 picam2.start()
@@ -45,7 +54,8 @@ manual_gain = 1.0
 manual_lens = 4.0
 
 # Laser-friendly defaults
-awb_enabled = False  # <-- AWB OFF is usually what you want
+awb_enabled = False  # AWB OFF is usually what you want
+
 
 def apply_controls():
     controls = {}
@@ -56,9 +66,9 @@ def apply_controls():
         controls["ExposureTime"] = int(manual_exp_us)
         controls["AnalogueGain"] = float(manual_gain)
 
-    # Auto White Balance (laser-friendly: OFF)
+    # Auto White Balance
     controls["AwbEnable"] = 1 if awb_enabled else 0
-    # Optional: lock colour gains when AWB off (tune these to your scene)
+    # Optional: lock colour gains when AWB off
     # if not awb_enabled:
     #     controls["ColourGains"] = (1.5, 1.2)
 
@@ -71,6 +81,7 @@ def apply_controls():
         picam2.set_controls(controls)
     except Exception as ex:
         print(f"[warn] set_controls failed: {ex} (controls={controls})")
+
 
 apply_controls()
 
@@ -88,15 +99,16 @@ print("  q/ESC  quit")
 cv2.namedWindow("Pi Cam Preview (SPACE=capture)", cv2.WINDOW_NORMAL)
 
 while True:
-    # Single request per frame: image + metadata together (faster + consistent)
+    # Single request per frame: image + metadata together
     req = picam2.capture_request()
     try:
-        frame = req.make_array("main")  # RGB888
+        frame_rgb = req.make_array("main")  # RGB888
         md = req.get_metadata()
     finally:
         req.release()
 
-    frame_bgr = picam2.capture_array()
+    # Convert the same frame to BGR for OpenCV display / saving
+    frame_bgr = cv2.cvtColor(frame_rgb, cv2.COLOR_RGB2BGR)
 
     exp_us = md.get("ExposureTime")
     gain = md.get("AnalogueGain")
@@ -112,17 +124,42 @@ while True:
     if af_state is not None:
         lines.append(f"AF State: {af_state}")
 
-    display = cv2.resize(frame_bgr, (1280, 720))
+    display = cv2.resize(frame_bgr, (PREVIEW_W, PREVIEW_H))
 
+    # Draw ROI scaled from full-res to preview size
+    x0, y0, x1, y1 = ROI
+    sx = PREVIEW_W / FULL_W
+    sy = PREVIEW_H / FULL_H
+
+    x0p = int(x0 * sx)
+    y0p = int(y0 * sy)
+    x1p = int(x1 * sx)
+    y1p = int(y1 * sy)
+
+    cv2.rectangle(display, (x0p, y0p), (x1p, y1p), (0, 255, 0), 2)
+    cv2.putText(
+        display,
+        "ROI",
+        (x0p, max(20, y0p - 10)),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.8,
+        (0, 255, 0),
+        2,
+        cv2.LINE_AA,
+    )
 
     y = 28
     for t in lines:
-        cv2.putText(display, t, (12, y),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.8,   # adjust size here
-                    (255,255,255),
-                    2,
-                    cv2.LINE_AA)
+        cv2.putText(
+            display,
+            t,
+            (12, y),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.8,
+            (255, 255, 255),
+            2,
+            cv2.LINE_AA,
+        )
         y += 30
 
     cv2.imshow("Pi Cam Preview (SPACE=capture)", display)
@@ -143,6 +180,7 @@ while True:
         manual_exp_us = clamp(manual_exp_us - EXP_STEP_US, EXP_MIN_US, EXP_MAX_US)
         ae_enabled = False
         apply_controls()
+
     if key == ord("]"):
         manual_exp_us = clamp(manual_exp_us + EXP_STEP_US, EXP_MIN_US, EXP_MAX_US)
         ae_enabled = False
@@ -152,6 +190,7 @@ while True:
         manual_gain = clamp(manual_gain - GAIN_STEP, GAIN_MIN, GAIN_MAX)
         ae_enabled = False
         apply_controls()
+
     if key == ord("="):
         manual_gain = clamp(manual_gain + GAIN_STEP, GAIN_MIN, GAIN_MAX)
         ae_enabled = False
@@ -165,6 +204,7 @@ while True:
         manual_lens = clamp(manual_lens - LENS_STEP, LENS_MIN, LENS_MAX)
         af_continuous = False
         apply_controls()
+
     if key == ord("."):
         manual_lens = clamp(manual_lens + LENS_STEP, LENS_MIN, LENS_MAX)
         af_continuous = False
