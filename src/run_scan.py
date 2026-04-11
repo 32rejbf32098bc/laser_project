@@ -370,7 +370,23 @@ def main():
                 continue
                 """
             # For crack scanning, use ridge points directly (no centerline reconstruction)
-            center_yx = pts_yx
+            # center_yx = pts_yx
+            segments = centerline_from_ridge_points(
+                pts_yx,
+                strength,
+                bin_step_px=1.0,
+                smooth_win=7,
+                max_gap_px=20.0,
+                min_bins=40,
+                segment_radius_px=3.0,
+                min_segment_points=25,
+                return_segments=True,
+            )
+
+            if segments:
+                center_yx = np.vstack(segments).astype(np.float32)
+            else:
+                center_yx = pts_yx
 
             if center_yx.size == 0:
                 print(f"ERROR: frame {i} no ridge points")
